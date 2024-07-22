@@ -16,6 +16,11 @@
         {
             public string name;
             public int hp;
+            public Monster()
+            {
+                this.name = "피카츄";
+                this.hp = 35;
+            }
             public Monster(string name, int hp) 
             { 
                 this.name = name;
@@ -25,7 +30,7 @@
         static void Main(string[] args)
         {
             Trainer hanJiU = new Trainer("한지우");
-            hanJiU.monsters[0] = new Monster("피카츄", 35);
+            hanJiU.monsters[0] = new Monster();
             hanJiU.monsters[1] = new Monster("망나뇽", 91);
             hanJiU.monsters[2] = new Monster("루카리오", 70);
             hanJiU.monsters[3] = new Monster("창파나이트", 62);
@@ -35,7 +40,7 @@
             Console.WriteLine($"트레이너: {hanJiU.name}");
             for (int i = 0; i < hanJiU.monsters.Length; i++)
             {
-                Console.WriteLine($"{i}. {hanJiU.monsters[i].name,-5}   {hanJiU.monsters[i].hp}");
+                Console.WriteLine($"{i}. {hanJiU.monsters[i].name,-10}{hanJiU.monsters[i].hp}");
             }
         }
     }
