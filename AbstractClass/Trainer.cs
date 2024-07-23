@@ -1,28 +1,43 @@
 ﻿namespace TrainerSystem
 {
-    public enum MobType { Electric, Fire, Water, Grass }
+    public enum MobType { Electric, Fire, Water, Grass, NULL }
     public class Trainer
     {
-        public Monster[] monsters;       
+        public Monster[] monsters;
         public Trainer()
         {
-            index = 1;
             monsters = new Monster[6];
-            monsters[0] = new Pikachu(100, "지우피카츄");
+            monsters[0] = new Pikachu(100, "지우피카츄");           
         }
-        public void GetPokeMon(int level,MobType type ,string name)
+        public void GetPokeMon(int level, MobType type, string name)
         {
-            if (index == 6)
+            for (int i = 0; i < monsters.Length; i++)
             {
-                Console.WriteLine("포켓몬이 가득 찼습니다");
-                return;
+                if (monsters[i] == null)
+                {
+                    if (type == MobType.Electric) monsters[i] = new Pikachu(level, name);
+                    if (type == MobType.Fire) monsters[i] = new Charmander(level, name);
+                    if (type == MobType.Water) monsters[i] = new Squirtle(level, name);
+                    if (type == MobType.Grass) monsters[i] = new Bulbasaur(level, name);
+                    return;
+                }
             }
-            if (type == MobType.Electric) monsters[index++]=new Pikachu(level, name);
-            if (type == MobType.Fire) monsters[index++]=new Charmander(level, name);
-            if (type == MobType.Water) monsters[index++] = new Squirtle(level, name);
-            if (type == MobType.Grass) monsters[index++] = new Bulbasaur(level, name); 
+            Console.WriteLine("포켓몬이 가득 찼습니다");
         }
-        int index;
+        public void AllAttack()
+        {
+            foreach(Monster m in monsters)
+            {
+                if (m != null)
+                {
+                    (m as Pikachu)?.BaseAttack();
+                    (m as Charmander)?.BaseAttack();
+                    (m as Squirtle)?.BaseAttack();
+                    (m as Bulbasaur)?.BaseAttack();
+                }
+            }
+        }
+
     }
     public abstract class Monster
     {
