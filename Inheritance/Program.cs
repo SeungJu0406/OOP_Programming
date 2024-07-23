@@ -1,4 +1,5 @@
 ﻿using HearthstoneHero;
+using Boss;
 
 namespace Inheritance
 {
@@ -15,6 +16,19 @@ namespace Inheritance
             foreach (Hero hero in heroes) 
             {
                 hero.HeroInfo();
+                hero.SpeakScript();
+            }
+
+            RaidBoss[] bosses =
+            {
+                new Marrowgar(),
+                new Sindragosa(),
+                new RichKing()
+            };
+            foreach(RaidBoss boss in bosses)
+            {
+                boss.BossInfo();
+                boss.GetReward();
             }
         }
     }
