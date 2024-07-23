@@ -1,13 +1,13 @@
 ﻿namespace _240722
 {
-    internal class Program
+    public class Program
     {
-        class Chracter
+        public class Character
         {
-            int level;
-            int hp;
-            int speed;
-            int power;
+            protected int level;
+            protected int hp;
+            protected int speed;
+            protected int power;
             void MoveForward()
             {
                 Console.WriteLine("전진하였습니다");
@@ -32,6 +32,14 @@
             {
                 Console.WriteLine("피격 당했습니다");
             }
+        }
+        public class Monster : Character
+        {
+
+        }
+        public class PlayerCharacter : Character
+        {
+
         }
 
         static void Main(string[] args)
