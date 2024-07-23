@@ -25,6 +25,10 @@ namespace HearthstoneCard
         {
             Console.WriteLine("일반카드입니다. 빛나지 않습니다");
         }
+        public void CardInfo()
+        {
+            Console.WriteLine($"{name}: {cost}코 {power}/{hp}  {rarity}카드.");
+        }
 
     }
     public class Shieldbearer : Card

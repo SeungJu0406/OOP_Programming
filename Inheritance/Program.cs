@@ -1,8 +1,10 @@
 ﻿using HearthstoneHero;
 using Boss;
+using HearthstoneCard;
 
 namespace Inheritance
 {
+    //
     internal class Program
     {
         static void Main(string[] args)
@@ -19,16 +21,31 @@ namespace Inheritance
             //    hero.SpeakScript();
             //}
 
-            RaidBoss[] bosses =
+            //RaidBoss[] bosses =
+            //{
+            //    new Marrowgar(),
+            //    new Sindragosa(),
+            //    new RichKing()
+            //};
+            //foreach(RaidBoss boss in bosses)
+            //{
+            //    boss.BossInfo();
+            //    boss.GetReward();
+            //}
+
+            Card[] cards =
             {
-                new Marrowgar(),
-                new Sindragosa(),
-                new RichKing()
+                new Shieldbearer(),
+                new AzureDrake(),
+                new MoltenGiant(),
+                new LeeroyJenkins()
             };
-            foreach(RaidBoss boss in bosses)
+            foreach (Card card in cards)
             {
-                boss.BossInfo();
-                boss.GetReward();
+                card.CardInfo();
+                card.PrintEffect();
+                card.PrintGoldenEffect();
+                Console.WriteLine();
             }
         }
     }
