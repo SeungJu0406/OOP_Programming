@@ -7,8 +7,11 @@ namespace AbstractClass
         static void Main(string[] args)
         {
             Trainer HanJiU = new Trainer();
-            Console.WriteLine($"{HanJiU.monsters[0].name} {HanJiU.monsters[0].level}");
-            HanJiU.monsters[0].BaseAttack();
+            HanJiU.GetPokeMon(5, MobType.Fire, "파이리");
+            foreach(Monster monster in HanJiU.monsters)
+            {
+                Console.WriteLine($"{monster.level}레벨   {monster.name}  타입: {monster.type}");
+            }
         }
     }
 }

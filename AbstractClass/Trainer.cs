@@ -3,12 +3,26 @@
     public enum MobType { Electric, Fire, Water, Grass }
     public class Trainer
     {
-        public Monster[] monsters;
+        public Monster[] monsters;       
         public Trainer()
         {
+            index = 1;
             monsters = new Monster[6];
             monsters[0] = new Pikachu(100, "삐까츄");
         }
+        public void GetPokeMon(int level,MobType type ,string name)
+        {
+            if (index == 6)
+            {
+                Console.WriteLine("포켓몬이 가득 찼습니다");
+                return;
+            }
+            if (type == MobType.Electric) monsters[index++]=new Pikachu(level, name);
+            if (type == MobType.Fire) monsters[index++]=new Charmander(level, name);
+            if (type == MobType.Water) monsters[index++] = new Squirtle(level, name);
+            if (type == MobType.Grass) monsters[index++] = new Bulbasaur(level, name); 
+        }
+        int index;
     }
     public abstract class Monster
     {
