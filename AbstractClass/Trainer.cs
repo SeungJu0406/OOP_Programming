@@ -8,7 +8,7 @@
         {
             index = 1;
             monsters = new Monster[6];
-            monsters[0] = new Pikachu(100, "삐까츄");
+            monsters[0] = new Pikachu(100, "지우피카츄");
         }
         public void GetPokeMon(int level,MobType type ,string name)
         {
