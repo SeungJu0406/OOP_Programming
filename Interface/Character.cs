@@ -75,13 +75,13 @@
         }
         private string battleCry;
     }
-    public class DeathrattleMinion : Minion
+    public class DeathrattleMinion : Minion // 죽음의 메아리 하수인
     {
         public DeathrattleMinion(string name, int power, int hp, string description, Team<Character> team) : base(name, power, hp, team)
         {
             this.deathRattle = description;
         }
-        public override void Die()
+        public override void Die() // 죽메 효과
         {
             base .Die();
             Console.WriteLine($"{name}의 죽음의 메아리:{deathRattle}");

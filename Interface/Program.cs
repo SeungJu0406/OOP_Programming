@@ -3,16 +3,17 @@
     public class Program
     {
         static void Main(string[] args)
-        {
+        {            
             Team<Character> members = new(8);
+            FireBall fireBall = new FireBall();
             members.AddTeam(new Hero("가로쉬", 4)); // 0
-            members.AddTeam(new DeathrattleMinion("오염된 노움", 2, 1,"적 영웅에게 2의 피해를 줍니다",members)); // 1
+            members.AddTeam(new DeathrattleMinion("오염된 노움", 2, 1, "적 영웅에게 2의 피해를 줍니다", members)); // 1
             members.AddTeam(new Minion("단검 곡예사", 3, 2, members)); // 2
             members.AddTeam(new Minion("볼바르 폴드라곤", 1, 7, members)); // 3
             members.AddTeam(new Minion("방패병", 0, 4, members)); // 4
             members.AddTeam(new Minion("박사 붐", 7, 7, members)); // 5
-            members.AddTeam(new BattleCryMinion("리로이 젠킨스", 6, 2,"적에게 새끼용 두마리를 소환합니다",members)); // 6
-            members.AddTeam(new BattleCryMinion("바위언덕 수호병", 1, 5,"도발 하수인을 발견합니다" ,members)); // 7
+            members.AddTeam(new BattleCryMinion("리로이 젠킨스", 6, 2, "적에게 새끼용 두마리를 소환합니다", members)); // 6
+            members.AddTeam(new BattleCryMinion("바위언덕 수호병", 1, 5, "도발 하수인을 발견합니다", members)); // 7
             members.AddTeam(new Minion("용암 거인", 8, 8, members)); // 8
             Console.WriteLine();
             members.members[4].Attack(members.members[1]);
@@ -24,7 +25,8 @@
             members.members[5].Attack(members.members[1]);
             Console.WriteLine();
             members.members[7].Attack(members.members[3]);
-            Console.WriteLine();
+            Console.WriteLine();            
+            fireBall.Attack(members.members[7]);
             members.PrintCharacter();
         }
     }
