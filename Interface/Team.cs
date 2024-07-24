@@ -15,7 +15,7 @@
             if (index < members.Length)
             {
                 members[index] = member;
-                Console.WriteLine($"{members[index].name}: {members[index].power}/{members[index].hp}");
+                Console.WriteLine($"{members[index].name}: {members[index].power}/{members[index].maxHp}");
                 index++;
             }
             else
@@ -40,7 +40,7 @@
             {
                 if (member != null)
                 {
-                    Console.WriteLine($"{member.name}: {member.power}/{member.hp}");
+                    Console.WriteLine($"{member.name}: {member.power}/{member.maxHp}");
                 }
             }
         }

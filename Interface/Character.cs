@@ -4,7 +4,7 @@
     {
         public string name;
         public int power;
-        public int hp;
+        public int maxHp;
         public Character(string name, int power)
         {
             this.name = name;
@@ -25,10 +25,10 @@
 
         public void TakeDamege(int power) // 피격으로 인한 데미지 받기
         {
-            hp -= power;
-            if (hp <= 0)
+            maxHp -= power;
+            if (maxHp <= 0)
             {
-                hp = 0;
+                maxHp = 0;
                 Die();
                 return;
             }
@@ -43,7 +43,7 @@
     {
         public Hero(string name, int power) : base(name, power)
         {
-            this.hp = 30;
+            this.maxHp = 30;
         }
     }
 
@@ -51,7 +51,7 @@
     {
         public Minion(string name, int power, int hp, Team<Character> team) : base(name, power)
         {
-            this.hp = hp;
+            this.maxHp = hp;
             this.team = team;
         }
         public override void Die() // 하수인이 죽은경우 필드에서 파괴됨을 나타내야됨
