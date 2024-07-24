@@ -22,4 +22,8 @@ namespace Interface
     {
         void Counter(Character attacker);
     }
+    public interface IHeal //힐
+    {
+        void Heal(Character character,int healAmount);
+    }
 }

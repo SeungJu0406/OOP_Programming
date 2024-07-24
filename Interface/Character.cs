@@ -1,14 +1,15 @@
 ﻿namespace Interface
 {
-    public class Character : ITakeDamage, IAttack, IDie
+    public class Character : ITakeDamage, IAttack, IDie, IHeal
     {
         public string name;
         public int power;
         public int maxHp;
+        public int hp;
         public Character(string name, int power)
         {
             this.name = name;
-            this.power = power;
+            this.power = power;            
         }
 
         public void Attack(Character target) // 공격 함수
@@ -25,13 +26,19 @@
 
         public void TakeDamege(int power) // 피격으로 인한 데미지 받기
         {
-            maxHp -= power;
-            if (maxHp <= 0)
+            hp -= power;
+            if (hp <= 0)
             {
-                maxHp = 0;
+                hp = 0;
                 Die();
                 return;
             }
+        }
+        public void Heal(Character character ,int healAmount)
+        {
+            character.hp += healAmount;
+            if (character.hp > character.maxHp)
+                character.hp = character.maxHp; 
         }
         public virtual void Die() // 죽음 
         {
@@ -44,15 +51,17 @@
         public Hero(string name, int power) : base(name, power)
         {
             this.maxHp = 30;
+            this.hp = maxHp;
         }
     }
 
     public class Minion : Character
     {
-        public Minion(string name, int power, int hp, Team<Character> team) : base(name, power)
+        public Minion(string name, int power, int maxhp, Team<Character> team) : base(name, power)
         {
-            this.maxHp = hp;
+            this.maxHp = maxhp;
             this.team = team;
+            this.hp = maxHp;
         }
         public override void Die() // 하수인이 죽은경우 필드에서 파괴됨을 나타내야됨
         {

@@ -6,6 +6,7 @@
         {            
             Team<Character> members = new(8);
             FireBall fireBall = new FireBall();
+            InstantHeal instantHeal = new InstantHeal();
             members.AddTeam(new Hero("가로쉬", 4)); // 0
             members.AddTeam(new DeathrattleMinion("오염된 노움", 2, 1, "적 영웅에게 2의 피해를 줍니다", members)); // 1
             members.AddTeam(new Minion("단검 곡예사", 3, 2, members)); // 2
@@ -26,7 +27,12 @@
             Console.WriteLine();
             members.members[7].Attack(members.members[3]);
             Console.WriteLine();            
-            fireBall.Attack(members.members[7]);
+            fireBall.Attack(members.members[0]);
+            Console.WriteLine();
+            members.PrintCharacter();
+            Console.WriteLine();
+            instantHeal.Heal(members.members[0],instantHeal.healAmount);
+            Console.WriteLine();
             members.PrintCharacter();
         }
     }
