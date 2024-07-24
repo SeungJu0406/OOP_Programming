@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
-    public interface IAttack
+    public interface IAttack //공격
     {
         void Attack(Character target);
     }
-    public interface ITakeDamage
+    public interface ITakeDamage //피격
     {
         void TakeDamege(int power);
     }
-    public interface IDie
+    public interface IDie // 죽음
     {
         void Die();
     }
-    public interface ICounter
+    public interface ICounter //반격
     {
         void Counter(Character attacker);
     }

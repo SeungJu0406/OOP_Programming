@@ -34,7 +34,7 @@
                 }
             }
         }
-        public void PrintCharacter()
+        public void PrintCharacter()// 현재 남아있는 하수인 출력
         {
             foreach (T member in members)
             {

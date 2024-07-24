@@ -6,7 +6,7 @@
         {
             Team<Character> members = new(8);
             members.AddTeam(new Hero("가로쉬", 4)); // 0
-            members.AddTeam(new Minion("꿀주먹 오우거", 6, 7,members)); // 1
+            members.AddTeam(new DeathrattleMinion("오염된 노움", 2, 1,"적 영웅에게 2의 피해를 줍니다",members)); // 1
             members.AddTeam(new Minion("단검 곡예사", 3, 2, members)); // 2
             members.AddTeam(new Minion("볼바르 폴드라곤", 1, 7, members)); // 3
             members.AddTeam(new Minion("방패병", 0, 4, members)); // 4
