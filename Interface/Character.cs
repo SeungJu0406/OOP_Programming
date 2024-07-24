@@ -19,13 +19,13 @@ namespace Interface
 
         public void Attack(Character target)
         {
-            Console.WriteLine($"{target.name}에게 {power}만큼의 피해를 입혔습니다");
+            Console.WriteLine($"{name}이/가 {target.name}에게 {power}만큼의 피해를 입혔습니다");
             target.TakeDamege(power);
         }
 
         public void TakeDamege(int power)
         {
-            Console.WriteLine($"{power}만큼의 피해를 입었습니다");
+            Console.WriteLine($"{name}이/가 {power}만큼의 피해를 입었습니다");
             hp -= power;
             if (hp <= 0)
             {
@@ -33,7 +33,6 @@ namespace Interface
                 Die();
                 return;
             }
-            Console.WriteLine($"남은 체력은 {hp} 입니다");
         }
         public void Die()
         {

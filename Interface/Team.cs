@@ -38,7 +38,6 @@ namespace Interface
         }
         public void PrintCharacter()
         {
-            Console.WriteLine("목록: ");
             foreach (T member in members)
             {
                 if (member != null)
