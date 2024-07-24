@@ -10,22 +10,13 @@
             members = new T[size];
         }
 
-        public void Attack(IAttack attack)
-        {
-
-        }
-        public void TakeDamage(ITakeDamage takeDamage)
-        {
-
-        }
-
         public void AddTeam(T member) // 하수인 추가 
         {
             if (index < members.Length)
                 members[index++] = member;
         }
 
-        public void RemoveTeam(Character character) // 하수인 사망
+        public void RemoveTeam(T character) // 하수인 사망
         {
             for (int i = 0; i < members.Length; i++)
             {

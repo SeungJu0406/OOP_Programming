@@ -8,7 +8,7 @@ namespace Interface
 {
     public class Character : ITakeDamage, IAttack, IDie
     {
-        public string name;
+        public string name; 
         public int power;
         public int hp;
         public Character(string name, int power)
@@ -50,13 +50,16 @@ namespace Interface
 
     public class Minion : Character
     {
-        public Minion(string name, int power, int hp) : base(name, power)
+        public Minion(string name, int power, int hp, Team<Character> team) : base(name, power)
         {
             this.hp = hp;
+            this.team = team;
         }
         public override void Die()
         {
             base.Die();
+            team.RemoveTeam(this);          
         }
+        private Team<Character> team; // Team<T>와 연동하기 위한 변수
     }
 }
