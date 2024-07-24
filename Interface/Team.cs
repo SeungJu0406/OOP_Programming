@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Interface
+﻿namespace Interface
 {
     public class Team<T> where T : Character
     {
@@ -18,11 +12,11 @@ namespace Interface
 
         public void Attack(IAttack attack)
         {
-           
+
         }
         public void TakeDamage(ITakeDamage takeDamage)
         {
-            
+
         }
 
         public void AddTeam(T member) // 하수인 추가 
@@ -31,10 +25,17 @@ namespace Interface
                 members[index++] = member;
         }
 
-        public void RemoveTeam() // 하수인 사망
+        public void RemoveTeam(Character character) // 하수인 사망
         {
-            if (index > 0)
-                members[--index] = null;
+            for (int i = 0; i < members.Length; i++)
+            {
+                if (members[i] == character)
+                {
+                    Console.WriteLine($"{members[i].name}이 파괴됩니다.");
+                    members[i] = null;
+                    return;
+                }
+            }
         }
         public void PrintCharacter()
         {

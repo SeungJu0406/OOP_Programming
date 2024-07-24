@@ -34,11 +34,12 @@ namespace Interface
                 return;
             }
         }
-        public void Die()
+        public virtual void Die()
         {
-            Console.WriteLine($"{name}이 죽었습니다");
+            Console.WriteLine($"{name}이 죽었습니다");            
         }
     }
+
     public class Hero : Character
     {
         public Hero(string name, int power) : base(name, power)
@@ -46,12 +47,16 @@ namespace Interface
             this.hp = 30;
         }
     }
+
     public class Minion : Character
     {
-        bool isSleep;
         public Minion(string name, int power, int hp) : base(name, power)
         {
             this.hp = hp;
+        }
+        public override void Die()
+        {
+            base.Die();
         }
     }
 }
