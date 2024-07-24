@@ -61,6 +61,7 @@
         }
         private Team<Character> team; // Team<T>와 연동하기 위한 변수
     }
+
     public class BattleCryMinion : Minion // 전투의 함성 하수인
     {
         public BattleCryMinion(string name, int power, int hp, string description, Team<Character> team) : base(name, power, hp, team)
