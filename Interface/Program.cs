@@ -16,8 +16,11 @@
             members.AddTeam(new Minion("용암 거인", 8, 8, members)); // 8
             Console.WriteLine();
             members.members[4].Attack(members.members[1]);
+            Console.WriteLine();
             members.members[6].Attack(members.members[5]);
+            Console.WriteLine();
             members.members[0].Attack(members.members[4]);
+            Console.WriteLine();
             members.members[5].Attack(members.members[1]);
             Console.WriteLine();
             members.PrintCharacter();

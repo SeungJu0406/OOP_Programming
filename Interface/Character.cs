@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
-    public class Character : ITakeDamage, IAttack, IDie
+    public class Character : ITakeDamage, IAttack, ICounter ,IDie
     {
         public string name; 
         public int power;
@@ -26,11 +26,11 @@ namespace Interface
             }
             Console.WriteLine($"{name}이/가 {target.name}에게 {power}만큼의 피해를 입혔습니다");
             target.TakeDamege(power);
+            target.Counter(this);
         }
 
         public void TakeDamege(int power)
         {
-            Console.WriteLine($"{name}이/가 {power}만큼의 피해를 입었습니다");
             hp -= power;
             if (hp <= 0)
             {
@@ -39,6 +39,15 @@ namespace Interface
                 return;
             }
         }
+        public void Counter(Character attacker)
+        {
+            if (hp > 0)
+            {
+                Console.WriteLine($"{name}이/가 {attacker.name}에게 반격합니다");
+                Attack(attacker);
+            }
+        }
+        
         public virtual void Die()
         {
             Console.WriteLine($"{name}이 죽었습니다");            

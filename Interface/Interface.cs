@@ -18,4 +18,8 @@ namespace Interface
     {
         void Die();
     }
+    public interface ICounter
+    {
+        void Counter(Character attacker);
+    }
 }
