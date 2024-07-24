@@ -19,6 +19,11 @@ namespace Interface
 
         public void Attack(Character target)
         {
+            if (power <= 0)
+            {
+                Console.WriteLine($"{name}은/는 {target.name}에게 공격할 수 없습니다");
+                return;
+            }
             Console.WriteLine($"{name}이/가 {target.name}에게 {power}만큼의 피해를 입혔습니다");
             target.TakeDamege(power);
         }

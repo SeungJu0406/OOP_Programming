@@ -13,7 +13,13 @@
         public void AddTeam(T member) // 하수인 추가 
         {
             if (index < members.Length)
-                members[index++] = member;
+            {
+                members[index] = member;
+                Console.WriteLine($"{members[index].name}: {members[index].power}/{members[index].hp}");
+                index++;
+            }
+            else
+                Console.WriteLine("더 이상 낼 수 없습니다.");
         }
 
         public void RemoveTeam(T character) // 하수인 사망
