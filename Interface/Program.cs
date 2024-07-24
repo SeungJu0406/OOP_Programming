@@ -29,7 +29,7 @@
                 members[--index] = member;
         }
     }
-    public class Character : ITakeDamage, IAttack, IDie
+    public class Character : ITakeDamage, IAttack
     {
         string name;
         int power;
@@ -54,10 +54,9 @@
             if (hp < 0)
             {
                 hp = 0;
-                Die();
                 return;
             }
-            Console.WriteLine($"{power}만큼의 피해를 입었습니다");
+            Console.WriteLine($"남은 체력은 {hp} 입니다");
         }
         public void Die(Character target)
         {
@@ -83,6 +82,6 @@
     }
     public interface IDie
     {
-        void Die(Character character);
+        void Die();
     }
 }
