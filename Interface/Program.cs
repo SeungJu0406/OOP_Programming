@@ -29,8 +29,6 @@
             Console.WriteLine();            
             fireBall.Attack(members.members[0]);
             Console.WriteLine();
-            members.PrintCharacter();
-            Console.WriteLine();
             instantHeal.Heal(members.members[0],instantHeal.healAmount);
             Console.WriteLine();
             members.PrintCharacter();

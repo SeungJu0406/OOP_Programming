@@ -46,7 +46,7 @@
         }
     }
 
-    public class Hero : Character
+    public class Hero : Character // 영웅 클래스
     {
         public Hero(string name, int power) : base(name, power)
         {
@@ -55,7 +55,7 @@
         }
     }
 
-    public class Minion : Character
+    public class Minion : Character // 하수인 클래스
     {
         public Minion(string name, int power, int maxhp, Team<Character> team) : base(name, power)
         {
