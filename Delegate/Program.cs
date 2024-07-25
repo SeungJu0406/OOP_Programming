@@ -17,18 +17,17 @@
             public void UnEquip()
             {
                 Console.WriteLine($"플레이어가 {curArmor.name} 을/를 해제합니다.");
-                curArmor = null; // 현재 인스턴스 curArmor필드 비우기 : 캐릭터 장비 벗기
                 curArmor.OnBreaked -= UnEquip; // 벗었으니 벗는 함수 뺄게
+                curArmor = null; // 현재 인스턴스 curArmor필드 비우기 : 캐릭터 장비 벗기           
             }
 
             public void Hit()
             {
                 Console.WriteLine("플레이어가 데미지를 받았습니다");
+                if (curArmor == null) // 부숴질 장비 객체가 없기때문에 함수를 끊는다
+                    return;
                 this.OnHit += curArmor.DecreaseDurability; // 맞았으니 내구도 깎일게
-                if (OnHit != null) 
-                {                   
-                    OnHit(); // 나 맞아따!!!!!!!!!!!// 
-                }
+                OnHit?.Invoke(); // 나 마자따!!!!!!!!!!!!!!!
             }
         }
 
@@ -49,6 +48,7 @@
 
             public void DecreaseDurability()
             {
+                player.OnHit -= DecreaseDurability; // 맞았으니 그만 맞을게
                 if (durability <= 0)
                     return;
                 durability--; // 내구도 1 감소
@@ -57,17 +57,13 @@
                     Break(); // 장비 파괴
                     return;
                 }
-                Console.WriteLine($"{name}의 내구도가 닳습니다. 현재 내구도: {durability}");
-                player.OnHit -= DecreaseDurability; // 맞았으니 그만 맞을게
+                Console.WriteLine($"{name}의 내구도가 닳습니다. 현재 내구도: {durability}");              
             }
 
             private void Break()
             {
                 Console.WriteLine("장비가 파괴되었습니다.");
-                if (OnBreaked != null)
-                {                   
-                    OnBreaked(); // 나 부숴져따!!!!!!!!!!
-                }
+                OnBreaked?.Invoke(); // 나 부숴져따!!!!!!!!!!!!
             }
         }
 
