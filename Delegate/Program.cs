@@ -49,13 +49,15 @@
 
             public void DecreaseDurability()
             {
+                if (durability <= 0)
+                    return;
                 durability--; // 내구도 1 감소
                 if (durability <= 0) // 내구도 0되면
                 {
                     Break(); // 장비 파괴
                     return;
                 }
-                Console.WriteLine($"장비의 내구도가 닳습니다. 현재 내구도: {durability}");
+                Console.WriteLine($"{name}의 내구도가 닳습니다. 현재 내구도: {durability}");
                 player.OnHit -= DecreaseDurability; // 맞았으니 그만 맞을게
             }
 
@@ -78,6 +80,7 @@
             player.Hit(); // 1대
             player.Hit(); // 2대
             player.Hit(); // 3대
+            player.Hit();
         }
     }
 }
