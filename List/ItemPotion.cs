@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ListAssignment
+{
+    public class Potion : Item
+    {
+
+    }
+    public class HealingPotion : Potion
+    {
+        public HealingPotion()
+        {
+            this.name= "힐링포션";
+            description = "체력을 회복합니다";
+        }
+    }
+    public class ManaPotion : Potion 
+    {
+        public ManaPotion()
+        {
+            this.name = "마나포션";
+            description = "마나를 회복합니다";
+        }
+    }
+    public class ExpPotion : Potion 
+    {
+        public ExpPotion()
+        {
+            this.name = "경험치포션";
+            description = "경험치를 소량 얻습니다";
+        }
+    }
+    public class StrangePotion : Potion 
+    {
+        public StrangePotion()
+        {
+            this.name = "이상한포션";
+            description = "배가 아픕니다";
+        }
+    }
+
+}
