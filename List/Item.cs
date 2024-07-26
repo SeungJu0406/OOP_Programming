@@ -16,22 +16,26 @@ namespace ListAssignment
             inventory.ExitInventory(this);
         }
         private Inventory inventory;
+        private KeyInput keyinput;
     }
     public class ItemSelecter 
     {
-        List<List<Item>> item = new List<List<Item>>()
+       
+
+        List<List<Item>> items = new List<List<Item>>(5)
         {
-            new List<Item>{ new Ring(), new Necklace(), new Charm(),new Brooch() },
-            new List<Item>{ new Helmet(), new Breastplate(), new Gloves(),new Shoes() },
-            new List<Item>{ new Chicken(), new Stake(), new Fish(),new Salad() },
-            new List<Item>{ new HealingPotion(), new ManaPotion(), new ExpPotion(),new StrangePotion() },
-            new List<Item>{ new Sword(), new Hammer(), new Spear(), new Axe()}
+            new List<Item>(4){ new Ring(), new Necklace(), new Charm(),new Brooch() },
+            new List<Item>(4){ new Helmet(), new Breastplate(), new Gloves(),new Shoes() },
+            new List<Item>(4){ new Chicken(), new Stake(), new Fish(),new Salad() },
+            new List<Item>(4){ new HealingPotion(), new ManaPotion(), new ExpPotion(),new StrangePotion() },
+            new List<Item>(4){ new Sword(), new Hammer(), new Spear(), new Axe()}
         };
         public Item SelectItem()
         {
-            List<Item> type = item[Util.GetRandomNumber(0, 5)];
+            List<Item> type = items[Util.GetRandomNumber(0, 5)];
             return type[Util.GetRandomNumber(0, 4)];
-        }
+        }   
+        private Item item;
     }
 
 }
