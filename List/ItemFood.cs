@@ -2,7 +2,10 @@
 {
     public class Food : Item
     {
+        public Food()
+        {
 
+        }
     }
     public class Chicken : Food
     {

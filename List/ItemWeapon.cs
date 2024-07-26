@@ -8,7 +8,10 @@ namespace ListAssignment
 {
     public class Weapon : Item
     {
-        
+        public Weapon()
+        {
+
+        }
     }
 
     public class Sword : Weapon

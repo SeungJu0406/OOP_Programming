@@ -8,7 +8,10 @@ namespace ListAssignment
 {
     public class Armor : Item
     {
+        public Armor()
+        {
 
+        }
     }
     public class Helmet : Armor
     {

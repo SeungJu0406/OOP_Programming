@@ -3,9 +3,11 @@
 
     public class Accessory : Item
     {
+        public Accessory()
+        {
 
+        }
     }
-
     public class Ring : Accessory
     {
         public Ring()
@@ -30,13 +32,13 @@
             description = "그냥 종이입니다";
         }
 
-        public class Brooch : Accessory
+    }
+    public class Brooch : Accessory
+    {
+        public Brooch()
         {
-            public Brooch()
-            {
-                this.name = "브로치";
-                description = "반짝거립니다";
-            }
+            this.name = "브로치";
+            description = "반짝거립니다";
         }
     }
 }

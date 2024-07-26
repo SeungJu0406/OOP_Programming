@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ListAssignment
+﻿namespace ListAssignment
 {
     public class Item
     {
         public string description { get; protected set; }
         public string name { get; protected set; }
-
+        
         public void EnterInventory(Inventory inventory)
         {
             inventory.EnterInventory(this);
@@ -22,10 +15,5 @@ namespace ListAssignment
         }
         private Inventory inventory;
     }
-
-
-
-
-
 
 }

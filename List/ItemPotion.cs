@@ -8,7 +8,10 @@ namespace ListAssignment
 {
     public class Potion : Item
     {
+        public Potion()
+        {
 
+        }
     }
     public class HealingPotion : Potion
     {

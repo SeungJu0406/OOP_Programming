@@ -24,10 +24,13 @@ namespace ListAssignment
         }
         public void PrintInventory()
         {
+            Console.Clear();
             foreach (Item item in inventory)
-            {
-                Console.WriteLine($"{item.name}: {item.description}");
+            {             
+                Console.WriteLine($"[{++index}] {item.name}: {item.description}");                
             }
+            index = 0;
         }
+        private int index;
     }
 }
