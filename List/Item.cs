@@ -1,27 +1,20 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace ListAssignment
+﻿namespace ListAssignment
 {
     public class Item
     {
         public string description { get; protected set; }
         public string name { get; protected set; }
-        
-        public void EnterInventory(Inventory inventory)
-        {
-            inventory.EnterInventory(this);          
-        }
+
         public void ExitInventory(Inventory inventory)
         {
             inventory.ExitInventory(this);
         }
-        private Inventory inventory;
-        private KeyInput keyinput;
-    }
-    public class ItemSelecter 
-    {
-       
 
+        private Inventory inventory;
+
+    }
+    public class ItemSelecter
+    {
         List<List<Item>> items = new List<List<Item>>(5)
         {
             new List<Item>(4){ new Ring(), new Necklace(), new Charm(),new Brooch() },
@@ -30,12 +23,17 @@ namespace ListAssignment
             new List<Item>(4){ new HealingPotion(), new ManaPotion(), new ExpPotion(),new StrangePotion() },
             new List<Item>(4){ new Sword(), new Hammer(), new Spear(), new Axe()}
         };
-        public Item SelectItem()
+        public void EnterInventory(Inventory inventory)
+        {
+            inventory.EnterInventory(SelectItem());
+        }
+
+        private Item SelectItem()
         {
             List<Item> type = items[Util.GetRandomNumber(0, 5)];
             return type[Util.GetRandomNumber(0, 4)];
-        }   
-        private Item item;
+        }
     }
 
 }
+

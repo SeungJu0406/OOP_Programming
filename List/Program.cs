@@ -5,10 +5,13 @@
         static void Main(string[] args)
         {
             Inventory inventory = new Inventory();
-            KeyInput keyInput = new KeyInput();
-            ItemSelecter itemSelecter = new ItemSelecter();
-            Item item = new Item();
-            keyInput.PushKey0();
+            ItemSelecter item1 = new ItemSelecter();
+            item1.EnterInventory(inventory);
+            inventory.PrintInventory();
+            inventory.inventory[0].ExitInventory(inventory);
+            inventory.PrintInventory();
+
+
 
 
         }

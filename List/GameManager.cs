@@ -12,7 +12,6 @@ namespace ListAssignment
         {
             Inventory inventory = new Inventory();
             KeyInput keyInput = new KeyInput();
-            ItemSelecter itemSelecter = new ItemSelecter();
             Item item = new Item();
         }
     }

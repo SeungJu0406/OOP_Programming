@@ -9,7 +9,7 @@ namespace ListAssignment
 {
     public class Inventory
     {
-        List<Item> inventory { get; set; }
+        public List<Item> inventory { get; set; }
         public Inventory()
         {
             inventory = new List<Item>(9);

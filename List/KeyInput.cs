@@ -22,6 +22,6 @@ namespace ListAssignment
         {
 
         }
-        private ItemSelecter itemSelecter;
+
     }
 }
