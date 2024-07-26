@@ -6,5 +6,8 @@ using System.Threading.Tasks;
 
 namespace ListAssignment
 {
-
+    public interface IPushKey
+    {
+        void PushKey();
+    }
 }

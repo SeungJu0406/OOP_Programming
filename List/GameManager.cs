@@ -1,19 +1,19 @@
-﻿namespace ListAssignment
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ListAssignment
 {
-    public static class Program
-    {       
-        static void Main(string[] args)
+    public class GameManager
+    {
+        public void InitializeGameObject()
         {
             Inventory inventory = new Inventory();
             KeyInput keyInput = new KeyInput();
             ItemSelecter itemSelecter = new ItemSelecter();
             Item item = new Item();
-            keyInput.PushKey0();
-
-
         }
-
-
     }
-
 }

@@ -9,7 +9,7 @@ namespace ListAssignment
         
         public void EnterInventory(Inventory inventory)
         {
-            inventory.EnterInventory(this);
+            inventory.EnterInventory(this);          
         }
         public void ExitInventory(Inventory inventory)
         {
