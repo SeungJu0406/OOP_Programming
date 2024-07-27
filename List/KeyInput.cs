@@ -54,8 +54,6 @@
                 case ConsoleKey.NumPad9:
                     OnPushKey1?.Invoke(9);
                     break;
-                case ConsoleKey.Escape:
-                    
                 default:
                     return;
             }

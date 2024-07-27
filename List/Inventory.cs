@@ -42,9 +42,14 @@ namespace ListAssignment
             Console.WriteLine("인벤토리");
             Console.WriteLine("========================================");
             foreach (Item item in inventory)
-            {             
-                Console.WriteLine($"[{++index}] {item.name}: {item.description}");                
+            {
+                Console.WriteLine($"[{++index}] {item.name}: {item.description}");
             }
+            for(int i = inventory.Count; i < inventory.Capacity; i++)
+            {
+                Console.WriteLine($"[{++index}]");
+            }
+
             index = 0;
             Console.WriteLine("========================================");
         }
