@@ -1,16 +1,26 @@
 ﻿namespace ListAssignment
 {
     public static class Program
-    {       
+    {
         static void Main(string[] args)
-       {
+        {
             Inventory inventory = new Inventory();
             KeyInput keyInput = new KeyInput();
-            while (true)
+            while (gameData.runningGame)
             {
                 inventory.PrintInventory();
-                keyInput.PushKey(inventory);               
+                keyInput.PushKey(inventory);
             }
         }
+        static GameData gameData = new GameData();
+        struct GameData
+        {
+            public bool runningGame;
+            public GameData()
+            {
+                runningGame = true;
+            }
+        }
+
     }
 }
