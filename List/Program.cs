@@ -6,19 +6,10 @@
         {
             Inventory inventory = new Inventory();
             KeyInput keyInput = new KeyInput();
-            while (gameData.runningGame)
+            while (true)
             {
                 inventory.PrintInventory();
                 keyInput.PushKey(inventory);
-            }
-        }
-        static GameData gameData = new GameData();
-        struct GameData
-        {
-            public bool runningGame;
-            public GameData()
-            {
-                runningGame = true;
             }
         }
 
