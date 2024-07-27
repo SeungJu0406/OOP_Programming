@@ -1,13 +1,13 @@
 ﻿namespace ListAssignment
 {
+    /// <summary>
+    /// 키 입력
+    /// </summary>
     public class KeyInput
     {
-        //키 입력
         //이벤트 발생 키눌렀다
-        //지정자를 써보자
         public event Action OnPushKey0;
         public event Action<int> OnPushKey1;
-
         public void PushKey(Inventory inventory)
         {
             OnPushKey1 += inventory.ReadExitItem;

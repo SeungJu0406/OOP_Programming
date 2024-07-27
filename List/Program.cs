@@ -8,13 +8,9 @@
             KeyInput keyInput = new KeyInput();
             while (true)
             {
-                keyInput.PushKey(inventory);
                 inventory.PrintInventory();
+                keyInput.PushKey(inventory);               
             }
-
         }
-
-
     }
-
 }

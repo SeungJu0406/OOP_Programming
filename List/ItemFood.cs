@@ -1,5 +1,8 @@
 ﻿namespace ListAssignment
 {
+    /// <summary>
+    /// 음식
+    /// </summary>
     public class Food : Item
     {
         public Food()
@@ -7,6 +10,9 @@
 
         }
     }
+    /// <summary>
+    /// 치킨
+    /// </summary>
     public class Chicken : Food
     {
         public Chicken()
@@ -15,6 +21,9 @@
             description = "맛있습니다";
         }
     }
+    /// <summary>
+    /// 스테이크
+    /// </summary>
     public class Stake : Food
     {
         public Stake()
@@ -31,6 +40,9 @@
             description = "탔습니다";
         }
     }
+    /// <summary>
+    /// 샐러드
+    /// </summary>
     public class Salad : Food
     {
         public Salad()

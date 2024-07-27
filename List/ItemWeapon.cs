@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ListAssignment
 {
+    /// <summary>
+    /// 무기
+    /// </summary>
     public class Weapon : Item
     {
         public Weapon()
@@ -13,7 +16,9 @@ namespace ListAssignment
 
         }
     }
-
+    /// <summary>
+    /// 검
+    /// </summary>
     public class Sword : Weapon
     {
         public Sword()
@@ -22,6 +27,9 @@ namespace ListAssignment
             description = "아픕니다";
         }
     }
+    /// <summary>
+    /// 망치
+    /// </summary>
     public class Hammer : Weapon     
     {
         public Hammer() 
@@ -30,7 +38,9 @@ namespace ListAssignment
             description = "무겁습니다";
         }
     }
-
+    /// <summary>
+    /// 창
+    /// </summary>
     public class Spear : Weapon
     {
         public Spear()
@@ -39,6 +49,9 @@ namespace ListAssignment
             description = "길쭉합니다";
         }
     }
+    /// <summary>
+    /// 도끼
+    /// </summary>
     public class Axe : Weapon
     {
         public Axe()

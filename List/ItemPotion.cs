@@ -38,6 +38,9 @@ namespace ListAssignment
             description = "마나를 회복합니다";
         }
     }
+    /// <summary>
+    /// 경험치포션
+    /// </summary>
     public class ExpPotion : Potion 
     {
         public ExpPotion()
@@ -46,6 +49,9 @@ namespace ListAssignment
             description = "경험치를 소량 얻습니다";
         }
     }
+    /// <summary>
+    /// 이상한포션
+    /// </summary>
     public class StrangePotion : Potion 
     {
         public StrangePotion()
