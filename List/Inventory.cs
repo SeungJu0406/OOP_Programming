@@ -20,14 +20,22 @@ namespace ListAssignment
                 return;
             new ItemSelecter(this);
         }
+        public void ReadExitItem(int i)
+        {
+            if (inventory.Count <= 0)
+                return;
+            if (inventory[i - 1] == null)
+                return;
+            inventory.RemoveAt(i-1);
+        }
         public void EnterInventory(Item item)
         {           
             inventory.Add(item);
         }
-        public void ExitInventory(Item item)
-        {
-            inventory.Remove(item);
-        }
+        //public void ExitInventory(Item item)
+        //{
+        //    inventory.Remove(item);
+        //}
         public void PrintInventory()
         {
             Console.Clear();

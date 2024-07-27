@@ -5,10 +5,10 @@
         public string description { get; protected set; }
         public string name { get; protected set; }
 
-        public void ExitInventory(Inventory inventory)
-        {
-            inventory.ExitInventory(this);
-        }
+        //public void ExitInventory(Inventory inventory)
+        //{
+        //    inventory.ExitInventory(this);
+        //}
 
         private Inventory inventory;
 
