@@ -14,6 +14,10 @@ namespace ListAssignment
         {
             inventory = new List<Item>(9);
         }
+        public void RequestKey()
+        {
+
+        }
         public void EnterInventory(Item item)
         {
             inventory.Add(item);

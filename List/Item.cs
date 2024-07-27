@@ -1,6 +1,6 @@
 ﻿namespace ListAssignment
 {
-    public class Item
+    public class Item 
     {
         public string description { get; protected set; }
         public string name { get; protected set; }
