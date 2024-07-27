@@ -23,6 +23,10 @@
             new List<Item>(4){ new HealingPotion(), new ManaPotion(), new ExpPotion(),new StrangePotion() },
             new List<Item>(4){ new Sword(), new Hammer(), new Spear(), new Axe()}
         };
+        public ItemSelecter(Inventory inventory)
+        {
+            EnterInventory(inventory);
+        }
         public void EnterInventory(Inventory inventory)
         {
             inventory.EnterInventory(SelectItem());

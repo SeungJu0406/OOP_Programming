@@ -14,12 +14,14 @@ namespace ListAssignment
         {
             inventory = new List<Item>(9);
         }
-        public void RequestKey()
+        public void ReadyEnterItem()
         {
-
+            if (inventory.Count >= 9) // 쓸데없이 객체 만들지 말고 9개 가득차면 여기서 끊어버림
+                return;
+            new ItemSelecter(this);
         }
         public void EnterInventory(Item item)
-        {
+        {           
             inventory.Add(item);
         }
         public void ExitInventory(Item item)
