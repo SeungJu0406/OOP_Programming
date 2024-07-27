@@ -22,9 +22,7 @@ namespace ListAssignment
         }
         public void ReadExitItem(int i)
         {
-            if (inventory.Count <= 0)
-                return;
-            if (inventory[i - 1] == null)
+            if (i>inventory.Count) // 인벤토리 총량보다 입력숫자가 더 크면 못뺌
                 return;
             inventory.RemoveAt(i-1);
         }
