@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace ListAssignment
 {
+    /// <summary>
+    /// 유틸
+    /// 랜덤: Random
+    /// </summary>
     public static class Util
     {
         private static Random random = new Random();

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ListAssignment
 {
+    /// <summary>
+    /// 포션
+    /// </summary>
     public class Potion : Item
     {
         public Potion()
@@ -13,14 +16,20 @@ namespace ListAssignment
 
         }
     }
-    public class HealingPotion : Potion
+    /// <summary>
+    /// 힐포션
+    /// </summary>
+    public class HealPotion : Potion
     {
-        public HealingPotion()
+        public HealPotion()
         {
-            this.name= "힐링포션";
+            this.name= "힐포션";
             description = "체력을 회복합니다";
         }
     }
+    /// <summary>
+    /// 마나포션
+    /// </summary>
     public class ManaPotion : Potion 
     {
         public ManaPotion()
