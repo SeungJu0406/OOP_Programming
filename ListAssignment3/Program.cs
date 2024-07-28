@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             MyList<int> myList = new MyList<int>();
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < 31; i++)
             {
                 myList.Add(i+1);
             }
@@ -15,6 +15,7 @@
     public class MyList<T>
     {
         T[] list;
+        T[] temp;
         int index;
         public MyList()
         {
@@ -30,7 +31,12 @@
         {
             if (index >= list.Length)
             {
+                temp = list;
                 this.list = new MyList<T>(this).list;
+                for(int i = 0; i < temp.Length; i++)
+                {
+                    list[i] = temp[i];
+                }
                 Add(element);
                 return;
             }
@@ -71,9 +77,9 @@
         }
         public void PrintList()
         {
-            foreach (T element in list)
+            for(int i = 0;i < list.Length; i++)
             {
-                Console.WriteLine(element);
+                Console.WriteLine(list[i]);
             }
             Console.WriteLine($"배열 총량: {list.Length}");
         }
