@@ -5,12 +5,10 @@
         static void Main(string[] args)
         {
             MyList<int> myList = new MyList<int>();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 11; i++)
             {
-                myList.Add(i);
+                myList.Add(i+1);
             }
-            myList.Remove(4);
-            myList.Remove(5);
             myList.PrintList();
         }
     }
@@ -30,15 +28,16 @@
         }
         public void Add(T element)
         {
-            if (index > list.Length)
+            if (index >= list.Length)
             {
                 this.list = new MyList<T>(this).list;
+                Add(element);
+                return;
             }
             list[index++] = element;
         }
         public void Remove(T element)
         {
-            T temp;
             bool removeElement = false;
             for (int i = 0; i < list.Length; i++)
             {
@@ -48,21 +47,27 @@
                 }
                 if (removeElement)
                 {
-                    if (i+1>=list.Length)
+                    if (i + 1 >= list.Length)
                         break;
                     list[i] = list[i + 1];
                 }
-               
+
             }
             index--;
         }
-        public void RemoveAt()
+        public void RemoveAt(int indexNum)
         {
-
+            for (int i = indexNum; i < list.Length; i++)
+            {
+                if (i + 1 >= list.Length)
+                    break;
+                list[i] = list[i + 1];
+            }
+            index--;
         }
         public void Clear()
         {
-
+            Array.Clear(list, 0, list.Length);
         }
         public void PrintList()
         {
@@ -73,4 +78,4 @@
             Console.WriteLine($"배열 총량: {list.Length}");
         }
     }
-}    
+}
