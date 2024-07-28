@@ -8,7 +8,7 @@ namespace ListAssignment
 {
     /// <summary>
     /// 유틸
-    /// 랜덤: Random
+    /// 랜덤
     /// </summary>
     public static class Util
     {
