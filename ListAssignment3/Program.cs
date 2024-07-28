@@ -5,10 +5,13 @@
         static void Main(string[] args)
         {
             MyList<int> myList = new MyList<int>();
-            for (int i = 0; i < 31; i++)
+            for (int i = 0; i < 12; i++)
             {
                 myList.Add(i+1);
             }
+            myList.Remove(3);
+            myList.RemoveAt(0);
+            //myList.Clear();
             myList.PrintList();
         }
     }
@@ -22,17 +25,17 @@
             index = 0;
             list = new T[10];
         }
-        private MyList(MyList<T> list)
+        private MyList(MyList<T> list, int num)
         {
             this.index = list.index;
-            this.list = new T[list.list.Length * 2];
+            this.list = new T[list.list.Length * num];
         }
         public void Add(T element)
         {
             if (index >= list.Length)
             {
                 temp = list;
-                this.list = new MyList<T>(this).list;
+                this.list = new MyList<T>(this,2).list;
                 for(int i = 0; i < temp.Length; i++)
                 {
                     list[i] = temp[i];
@@ -57,7 +60,6 @@
                         break;
                     list[i] = list[i + 1];
                 }
-
             }
             index--;
         }
