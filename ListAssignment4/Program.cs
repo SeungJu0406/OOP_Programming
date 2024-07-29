@@ -4,13 +4,17 @@
     {
         static void Main(string[] args)
         {
-            LinkedList<int> myList = new();
+            LinkedList<int> myList = new();                    
             myList.AddLast(1);
             myList.AddLast(2);
-            myList.AddLast(3);
             myList.AddFirst(0);
+            myList.AddLast(3);
             myList.AddLast(4);
-            myList.Remove(2);
+            myList.AddLast(5);
+            //myList.RemoveFirst();
+            //myList.RemoveLast();
+            //myList.Remove(2);
+            //myList.Clear();
             myList.PrintList();
         }
     }
@@ -35,6 +39,7 @@
                 node = new LinkedListNode<T>(value);
                 last = node;
                 first = last;
+                return;
             }
             node = first.AddPrev(value);
             node.next = first;
@@ -54,16 +59,19 @@
             node.previous = last;
             last = last.next;
         }
+
         public void RemoveFirst()
         {
             first = first.next;
             first.previous = null;
         }
+
         public void RemoveLast()
         {            
             last = last.previous;
             last.next = null;
         }
+
         public void Remove(T value)
         {
             node = first;
@@ -75,6 +83,17 @@
             node.next.previous = node.previous;
             node = null;
         }
+
+        public void Clear()
+        {
+            while(first != last)
+            {
+                first = first.next;
+                first.previous= null;
+            }
+            first = null;
+        }
+
         public void PrintList()
         {
             FuncPrintList(first);
