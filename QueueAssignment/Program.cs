@@ -22,8 +22,10 @@
         {
             foreach (int i in work)
             {
-                workload.Enqueue(i); // 리스트를 큐로 변환
+                Console.Write($"[{i}]\t");
+                workload.Enqueue(i); // 리스트를 큐로 변환               
             }
+            Console.WriteLine();
             int temp = 0;
             int todayWork = 0;
             int nowWork = 0;
@@ -69,7 +71,7 @@
             }
             foreach (int i in schedule)
             {
-                Console.WriteLine($" [{i}] ");
+                Console.Write($"[{i}]\t");
             }
         }
     }
