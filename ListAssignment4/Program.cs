@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            LinkedList<int> myList = new();                    
+            LinkedList<int> myList = new();
             myList.AddLast(1);
             myList.AddLast(2);
             myList.AddFirst(0);

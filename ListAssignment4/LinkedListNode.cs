@@ -39,6 +39,5 @@ namespace ListAssignment4
             previous = new LinkedListNode<T>(value, this, 1);
             return previous;
         }
-
     }
 }
