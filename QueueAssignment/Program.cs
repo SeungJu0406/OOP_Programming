@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             ScheduleCalc scheduleCalc = new ScheduleCalc();
-            scheduleCalc.CreateSchedule([8, 12, 2, 4, 8]);
+            scheduleCalc.CreateSchedule([17,20,30]);
 
         }
     }
@@ -22,7 +22,7 @@
         {
             foreach (int i in work)
             {
-                workload.Enqueue(i);
+                workload.Enqueue(i); // 리스트를 큐로 변환
             }
             int temp = 0;
             int todayWork = 0;
