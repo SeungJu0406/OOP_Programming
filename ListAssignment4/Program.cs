@@ -10,8 +10,7 @@
             myList.AddLast(3);
             myList.AddFirst(0);
             myList.AddLast(4);
-            myList.RemoveFirst();
-           
+            myList.Remove(2);
             myList.PrintList();
         }
     }
@@ -65,12 +64,22 @@
             last = last.previous;
             last.next = null;
         }
-
+        public void Remove(T value)
+        {
+            node = first;
+            while(!(node.element.Equals(value)))
+            {
+                node = node.next;
+            }
+            node.previous.next = node.next;
+            node.next.previous = node.previous;
+            node = null;
+        }
         public void PrintList()
         {
             FuncPrintList(first);
         }
-        public LinkedListNode<T> FuncPrintList(LinkedListNode<T> node)
+        private LinkedListNode<T> FuncPrintList(LinkedListNode<T> node)
         {
             if (node == null)
                 return null;
