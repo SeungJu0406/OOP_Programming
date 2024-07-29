@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace ListAssignment4
+﻿namespace ListAssignment4
 {
     public class Program
     {
@@ -11,8 +9,9 @@ namespace ListAssignment4
             myList.AddLast(2);
             myList.AddLast(3);
             myList.AddFirst(0);
-            myList.AddFirst(6);
-            myList.AddLast(7);
+            myList.AddLast(4);
+            myList.RemoveFirst();
+           
             myList.PrintList();
         }
     }
@@ -29,6 +28,7 @@ namespace ListAssignment4
             last = null;
             node = null;
         }
+
         public void AddFirst(T value)
         {
             if (node == null)
@@ -38,12 +38,13 @@ namespace ListAssignment4
                 first = last;
             }
             node = first.AddPrev(value);
-            node.next = first; 
+            node.next = first;
             first = first.previous;
         }
+
         public void AddLast(T value)
         {
-            if(node == null)
+            if (node == null)
             {
                 node = new LinkedListNode<T>(value);
                 last = node;
@@ -51,9 +52,20 @@ namespace ListAssignment4
                 return;
             }
             node = last.AddNext(value);
-            node.previous= last;
+            node.previous = last;
             last = last.next;
         }
+        public void RemoveFirst()
+        {
+            first = first.next;
+            first.previous = null;
+        }
+        public void RemoveLast()
+        {            
+            last = last.previous;
+            last.next = null;
+        }
+
         public void PrintList()
         {
             FuncPrintList(first);
@@ -66,38 +78,5 @@ namespace ListAssignment4
             return FuncPrintList(node.next);
         }
     }
-    public class LinkedListNode<T>
-    {
-        public T element { get; set; }
-        public LinkedListNode<T> next { get; set; }
-        public LinkedListNode<T> previous { get; set; }
-        public LinkedListNode(T node)
-        {
-            element = node;
-            next = null;
-            previous = null;
-        }
-        public LinkedListNode(T node, LinkedListNode<T> prev)
-        {
-            element = node;
-            next = null;
-            previous = prev;
-        }
-        public LinkedListNode(T node, LinkedListNode<T> next, int dummy)
-        {
-            element = node;
-            next = next;
-            previous = null;
-        }
-        public LinkedListNode<T> AddNext(T value)
-        {
-            next = new LinkedListNode<T>(value, this);
-            return next;
-        }
-        public LinkedListNode<T> AddPrev(T value)
-        {
-            previous = new LinkedListNode<T>(value, this, 1);           
-            return previous;
-        }
-    } 
+    
 }
