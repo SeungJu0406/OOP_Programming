@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             JosePhus josePhus = new();
-            josePhus.PrintJosePhus(7, 5);
+            josePhus.PrintJosePhus(7, 2);
         }
     }
     public class JosePhus
