@@ -13,7 +13,15 @@
             stack.Pop();
             Console.WriteLine(stack.Peek());
             stack.Push(5);
-            //stack.PrintStack();
+            stack.Push(5);
+            stack.Push(5);
+            stack.Push(5);
+            stack.Push(5);
+            stack.Push(5);
+            stack.Push(5);
+            stack.Push(5);
+            stack.Push(5);
+            stack.PrintStack();
         }
     }
     public class Stack<T>
@@ -33,13 +41,13 @@
         }
         public void Push(T value)
         {
-            if (index > stack.Length)
+            if (index >= stack.Length)
             {
                 temp = stack;
                 stack = new Stack<T>(index, this).stack;
                 for (int i = 0; i < temp.Length; i++)
                 {
-                    stack[i] = stack[i];
+                    stack[i] = temp[i];
                 }
                 Push(value);
                 return;
