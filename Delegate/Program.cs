@@ -1,4 +1,6 @@
-﻿namespace Delegate
+﻿using static Delegate.Program;
+
+namespace Delegate
 {
     public class Program
     {
@@ -12,12 +14,14 @@
                 Console.WriteLine($"플레이어가 {armor.name} 을/를 착용합니다.");
                 curArmor = armor; // 현재 인스턴스 curArmor필드에 armor라는 Armor 인스턴스 객체 착용 : 캐릭터가 장비를 착용
                 curArmor.OnBreaked += UnEquip; // 장비 부숴졌을 때 벗을게
+                this.OnHit += curArmor.DecreaseDurability; // 맞았으니 내구도 깎일게
             }
 
             public void UnEquip()
             {
                 Console.WriteLine($"플레이어가 {curArmor.name} 을/를 해제합니다.");
                 curArmor.OnBreaked -= UnEquip; // 벗었으니 벗는 함수 뺄게
+                this.OnHit -= curArmor.DecreaseDurability; // 맞았으니 그만 맞을게
                 curArmor = null; // 현재 인스턴스 curArmor필드 비우기 : 캐릭터 장비 벗기           
             }
 
@@ -26,7 +30,7 @@
                 Console.WriteLine("플레이어가 데미지를 받았습니다");
                 if (curArmor == null) // 부숴질 장비 객체가 없기때문에 함수를 끊는다
                     return;
-                this.OnHit += curArmor.DecreaseDurability; // 맞았으니 내구도 깎일게
+                
                 OnHit?.Invoke(); // 나 마자따!!!!!!!!!!!!!!!
             }
         }
@@ -48,7 +52,7 @@
 
             public void DecreaseDurability()
             {
-                player.OnHit -= DecreaseDurability; // 맞았으니 그만 맞을게
+                
                 if (durability <= 0)
                     return;
                 durability--; // 내구도 1 감소
