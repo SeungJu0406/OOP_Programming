@@ -12,16 +12,16 @@
             Console.WriteLine(stack.Peek());
             stack.Pop();
             Console.WriteLine(stack.Peek());
-            stack.Push(5);
-            stack.Push(5);
-            stack.Push(5);
-            stack.Push(5);
-            stack.Push(5);
-            stack.Push(5);
-            stack.Push(5);
-            stack.Push(5);
-            stack.Push(5);
-            stack.PrintStack();
+            //stack.Push(5);
+            //stack.Push(5);
+            //stack.Push(5);
+            //stack.Push(5);
+            //stack.Push(5);
+            //stack.Push(5);
+            //stack.Push(5);
+            //stack.Push(5);
+            //stack.Push(5);
+            //stack.PrintStack();
         }
     }
     public class Stack<T>
