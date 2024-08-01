@@ -9,58 +9,60 @@
             queue.Enqueue(2);
             queue.Enqueue(3);
             queue.Enqueue(4);
-            Console.WriteLine(queue.Peek());
             queue.Dequeue();
-            Console.WriteLine(queue.Peek());
-            queue.Enqueue(5);
-            queue.Enqueue(5);
-            queue.Enqueue(5);
-            queue.Enqueue(5);
-            queue.Enqueue(5);
-            queue.Enqueue(5);
-            queue.Enqueue(5);
+            queue.Dequeue();
+            queue.Dequeue();
+            queue.Dequeue();
+            for(int i = 0; i< 9; i++)
+            {
+                queue.Enqueue(i);
+            }
+            Console.WriteLine();
+            queue.PrintQueue();
+            //    Console.WriteLine();
+            //    Console.WriteLine(queue.Peek());
         }
     }
     public class Queue<T>
     {
-        T[] queue;
-        T[] temp;
+        T?[] queue;
+        T?[] temp;
         int head;
         int tail;
         public Queue()
         {
-            queue = new T[10];
+            queue = new T?[10];
             head = 0;
-            queue[head]=default(T);
+            tail = 0;
         }
-        public Queue(int pastIndex, Queue<T> pastQueue)
+        public Queue(int head,int tail, Queue<T> pastQueue)
         {
-            queue = new T[pastQueue.queue.Length*2];
-            head = 0;
-            tail = pastIndex-1;
+            queue = new T[pastQueue.queue.Length*2];           
         }
         public void Enqueue(T value)
         {
-            if(tail>= queue.Length)
+            queue[tail++] = value;
+            if (tail>= queue.Length)
             {
                 tail = 0;
             }
-            if (((head == 0) && (tail == queue.Length - 1)) || tail == head && queue[head] == null  )
+            if (((head == 0) && (tail == queue.Length - 1)) || tail == head)
             {
+                int intTemp= head;
                 temp = queue;
-                queue = new Queue<T>(queue.Length, this).queue;
-                for(int i =head; i <temp.Length; i++)
+                queue = new Queue<T>(head,queue.Length, this).queue;
+                for (int i = head; i < temp.Length; i++)
                 {
-                    queue[i-head] = temp[i-head];
+                    queue[i - head] = temp[i];
                 }
-                for(int i =0; i < head; i++)
+                for (int i = 0; i < head; i++)
                 {
-                    queue[i + head] = temp[i + head];
+                    queue[temp.Length - intTemp-- ] = temp[i];
                 }
-                Enqueue(value);
+                this.head = 0;
+                this.tail = temp.Length - 1;
                 return;
             }
-            queue[tail++] = value;
         }
         public void Dequeue()
         {
@@ -80,7 +82,7 @@
         {
             foreach (T i in queue)
             {
-                Console.WriteLine(i);
+               Console.WriteLine(i);
             }
         }
     }
