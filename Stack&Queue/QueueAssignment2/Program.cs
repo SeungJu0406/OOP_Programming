@@ -9,18 +9,18 @@
             queue.Enqueue(2);
             queue.Enqueue(3);
             queue.Enqueue(4);
+            queue.Dequeue(); 
             queue.Dequeue();
             queue.Dequeue();
             queue.Dequeue();
-            queue.Dequeue();
-            for(int i = 1; i< 10; i++)
+            for (int i = 1; i< 10; i++)
             {
                 queue.Enqueue(i);
             }
-            for (int i = 10; i < 18; i++)
-            {
-                queue.Enqueue(i);
-            }
+            //for (int i = 10; i < 18; i++)
+            //{
+            //    queue.Enqueue(i);
+            //}
             Console.WriteLine();
             queue.PrintQueue();
             Console.WriteLine();
