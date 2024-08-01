@@ -19,52 +19,59 @@
             queue.Enqueue(5);
             queue.Enqueue(5);
             queue.Enqueue(5);
-            queue.Enqueue(5);
-            queue.PrintQueue();
+            //queue.PrintQueue();
         }
     }
     public class Queue<T>
     {
         T[] queue;
         T[] temp;
-        int index;
+        int head;
+        int tail;
         public Queue()
         {
             queue = new T[10];
-            index = 0;
+            head = 0;
+            queue[head]=default(T);
         }
         public Queue(int pastIndex, Queue<T> pastQueue)
         {
             queue = new T[pastQueue.queue.Length*2];
-            index = pastIndex;
+            head = 0;
+            tail = pastIndex-1;
         }
         public void Enqueue(T value)
         {
-            if (index >= queue.Length)
+            if(tail>= queue.Length)
+            {
+                tail = 0;
+            }
+            if (((head == 0) && (tail == queue.Length - 1)) || tail == head && queue[head] == null  )
             {
                 temp = queue;
-                queue = new Queue<T>(index, this).queue;
-                for (int i = 0; i < temp.Length; i++)
+                queue = new Queue<T>(queue.Length, this).queue;
+                for(int i =head; i <temp.Length; i++)
                 {
-                    queue[i] = temp[i];
+                    queue[i-head] = temp[i-head];
+                }
+                for(int i =0; i < head; i++)
+                {
+                    queue[i + head] = temp[i + head];
                 }
                 Enqueue(value);
                 return;
             }
-            queue[index++] = value;
+            queue[tail++] = value;
         }
         public void Dequeue()
         {
-            for (int i = 0; i < queue.Length - 1; i++)
-            {
-                queue[i] = queue[i + 1];
-            }
-            queue[queue.Length - 1] = default(T);
-            index--;
+            if (head >= queue.Length)
+                head = 0;
+            queue[head++] = default(T);
         }
         public T Peek()
         {
-            return queue[0];
+            return queue[head];
         }
         public void Clear()
         {
