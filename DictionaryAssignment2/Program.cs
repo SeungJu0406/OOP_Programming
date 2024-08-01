@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-
+            char test = '할';
+            int test1 = test;
+            Console.WriteLine(test1);
         }
     }
     public class Dictionary<TKey, TValue> 

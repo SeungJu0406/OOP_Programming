@@ -19,12 +19,16 @@
             }
             //for (int i = 10; i < 18; i++)
             //{
-            //    queue.Enqueue(i);
-            //}
+            ////    queue.Enqueue(i);
+            ////}
             Console.WriteLine();
             queue.PrintQueue();
             Console.WriteLine();
             Console.WriteLine(queue.Peek());
+            Console.WriteLine();
+            queue.Clear();
+            queue.Enqueue(1);
+            queue.PrintQueue();
         }
     }
     public class Queue<T>
@@ -81,6 +85,8 @@
         public void Clear()
         {
             Array.Clear(queue, 0, queue.Length);
+            head = 0;
+            tail = 0;
         }
         public void PrintQueue()
         {
