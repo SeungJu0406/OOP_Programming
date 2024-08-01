@@ -13,29 +13,29 @@
             queue.Dequeue();
             queue.Dequeue();
             queue.Dequeue();
-            for(int i = 0; i< 9; i++)
+            for(int i = 1; i< 10; i++)
             {
                 queue.Enqueue(i);
             }
             Console.WriteLine();
             queue.PrintQueue();
-            //    Console.WriteLine();
-            //    Console.WriteLine(queue.Peek());
+            Console.WriteLine();
+            Console.WriteLine(queue.Peek());
         }
     }
     public class Queue<T>
     {
-        T?[] queue;
-        T?[] temp;
+        T[] queue;
+        T[] temp;
         int head;
         int tail;
         public Queue()
         {
-            queue = new T?[10];
+            queue = new T[10];
             head = 0;
             tail = 0;
         }
-        public Queue(int head,int tail, Queue<T> pastQueue)
+        public Queue(Queue<T> pastQueue)
         {
             queue = new T[pastQueue.queue.Length*2];           
         }
@@ -50,7 +50,7 @@
             {
                 int intTemp= head;
                 temp = queue;
-                queue = new Queue<T>(head,queue.Length, this).queue;
+                queue = new Queue<T>(this).queue;
                 for (int i = head; i < temp.Length; i++)
                 {
                     queue[i - head] = temp[i];
