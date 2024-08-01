@@ -26,7 +26,7 @@
             this.name = name;
             this.hp = hp;
         }
-        public void SaveData() 
+        private void SaveData() 
         {
             monsterData.Add("달팽이", new MonsterData("달팽이",5));
             monsterData.Add("사마귀", new MonsterData("사마귀", 10));
