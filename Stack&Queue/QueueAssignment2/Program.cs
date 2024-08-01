@@ -19,7 +19,6 @@
             queue.Enqueue(5);
             queue.Enqueue(5);
             queue.Enqueue(5);
-            //queue.PrintQueue();
         }
     }
     public class Queue<T>
