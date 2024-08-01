@@ -17,6 +17,10 @@
             {
                 queue.Enqueue(i);
             }
+            for (int i = 10; i < 18; i++)
+            {
+                queue.Enqueue(i);
+            }
             Console.WriteLine();
             queue.PrintQueue();
             Console.WriteLine();
