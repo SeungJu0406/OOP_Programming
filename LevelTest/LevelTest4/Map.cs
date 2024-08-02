@@ -70,7 +70,7 @@ namespace LevelTest4
                     crossroad.Add((MapName)to);
             }
         }
-        public void MoveMap(int from, int to)
+        private void MoveMap(int from, int to)
         {
             if (mapGraph.IsConnect(from, to))
             {
