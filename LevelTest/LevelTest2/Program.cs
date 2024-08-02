@@ -26,7 +26,7 @@ namespace LevelTest2
     public abstract class Monster
     { 
         Monster[] monsters;
-        public string name {  get; set; }
+        public string name {  get; protected set; }
         public abstract void Attack();
     }
     public class Pikachu : Monster 

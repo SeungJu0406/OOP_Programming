@@ -9,7 +9,7 @@ namespace LevelTest4
             Map map = new Map();
             KeyInput keyInput = new KeyInput();
             keyInput.OnPushKey += map.ChooseMap;
-            while (true) 
+            while (true)
             {
                 map.PrintChoiceMap();
                 keyInput.PushKey();

@@ -9,6 +9,7 @@ namespace LevelTest4
     public abstract class Graph
     {
         public abstract void Connect(int from, int to);
+        public abstract void ConnectBoth(int a, int b );
         public abstract void DisConnect(int from, int to);
         public abstract bool IsConnect(int from, int to);
     }
@@ -24,6 +25,11 @@ namespace LevelTest4
         public override void Connect(int from, int to) 
         {
             graph[from, to] = true;
+        }
+        public override void ConnectBoth(int a, int b)
+        {
+            graph[a ,b] = true;
+            graph[b ,a] = true;
         }
         public override void DisConnect(int from, int to)
         {
@@ -48,6 +54,11 @@ namespace LevelTest4
         public override void Connect(int from, int to)
         {
             graph[from].Add(to);
+        }
+        public override void ConnectBoth(int a, int b)
+        {
+            graph[a].Add(b);
+            graph[b].Add(a);
         }
         public override void DisConnect(int from, int to)
         {
