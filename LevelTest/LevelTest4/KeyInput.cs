@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LevelTest4
+﻿namespace LevelTest4
 {
     public class KeyInput
     {
@@ -12,13 +6,13 @@ namespace LevelTest4
         Map map;
         public KeyInput()
         {
-            
+
         }
         public void PushKey()
         {
-            
-            if(int.TryParse(Console.ReadLine(),out int key))
-            {                
+
+            if (int.TryParse(Console.ReadLine(), out int key))
+            {
                 OnPushKey?.Invoke(key);
             }
         }

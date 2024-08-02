@@ -21,8 +21,10 @@ namespace LevelTest4
 
         public void PrintChoiceMap()
         {
+            
             int order = 1;
             Console.Clear();
+            Console.WriteLine("=============== 맵 이동 ==============");
             Console.WriteLine($"현재장소: {nowMap}");
             Console.Write($"이동경로:");
             for (int i = 0; i < route.Count; i++)
@@ -55,16 +57,13 @@ namespace LevelTest4
                     }
                 }
             }
-            else
-            {
-                crossroad.Clear();
-            }
             return;
         }
 
 
         private void CreateChoice()
         {
+            crossroad.Clear();
             for (int to = 0; to < mapGraph.graph.GetLength(1); to++)
             {
                 if (mapGraph.IsConnect((int)nowMap, to))
