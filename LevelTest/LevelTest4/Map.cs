@@ -1,4 +1,6 @@
-﻿namespace LevelTest4
+﻿using Microsoft.Win32.SafeHandles;
+
+namespace LevelTest4
 {
     public class Map
     {
@@ -20,6 +22,7 @@
         public void PrintChoiceMap()
         {
             int order = 1;
+            Console.Clear();
             Console.WriteLine($"현재장소: {nowMap}");
             Console.Write($"이동경로:");
             for (int i = 0; i < route.Count; i++)
@@ -32,11 +35,32 @@
             {
                 Console.WriteLine($"{i+1}. {crossroad[i]}");
             }
+            Console.WriteLine();
+            Console.Write("이동할 장소를 선택하세요(뒤로가기 0): ");
         }
-
-
-
-
+        public void ChooseMap(int key)
+        {
+            if(key == 0 && route.Count>1)
+            {
+                route.RemoveAt(route.Count - 1);
+                nowMap = route[route.Count - 1];
+            }
+            if (0 <key && key-1 < crossroad.Count)
+            {
+                for (int i = 0; i < crossroad.Count; i++)
+                {
+                    if (key - 1 == i)
+                    {
+                        MoveMap((int)nowMap, (int)crossroad[i]);
+                    }
+                }
+            }
+            else
+            {
+                crossroad.Clear();
+            }
+            return;
+        }
 
 
         private void CreateChoice()
@@ -51,8 +75,9 @@
         {
             if (mapGraph.IsConnect(from, to))
             {
-                route.Add((MapName)from);
-                nowMap = (MapName)from;
+                route.Add((MapName)to);
+                nowMap = (MapName)to;
+                crossroad.Clear();
             }
         }
         private void SaveMapData(MatrixGraph mapGraph)
