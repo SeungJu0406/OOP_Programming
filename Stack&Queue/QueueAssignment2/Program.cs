@@ -9,18 +9,18 @@
             queue.Enqueue(2);
             queue.Enqueue(3);
             queue.Enqueue(4);
-            queue.Dequeue(); 
             queue.Dequeue();
             queue.Dequeue();
             queue.Dequeue();
-            for (int i = 1; i< 10; i++)
+            queue.Dequeue();
+            for (int i = 1; i < 10; i++)
             {
                 queue.Enqueue(i);
             }
-            //for (int i = 10; i < 18; i++)
-            //{
-            ////    queue.Enqueue(i);
-            ////}
+            for (int i = 10; i < 18; i++)
+            {
+                queue.Enqueue(i);
+            }
             Console.WriteLine();
             queue.PrintQueue();
             Console.WriteLine();
@@ -45,18 +45,18 @@
         }
         public Queue(Queue<T> pastQueue)
         {
-            queue = new T[pastQueue.queue.Length*2];           
+            queue = new T[pastQueue.queue.Length * 2];
         }
         public void Enqueue(T value)
         {
             queue[tail++] = value;
-            if (tail>= queue.Length)
+            if (tail >= queue.Length)
             {
                 tail = 0;
             }
-            if (((head == 0) && (tail == queue.Length - 1)) || tail == head)
+            if (tail == head)
             {
-                int intTemp= head;
+                int intTemp = head;
                 temp = queue;
                 queue = new Queue<T>(this).queue;
                 for (int i = head; i < temp.Length; i++)
@@ -65,10 +65,10 @@
                 }
                 for (int i = 0; i < head; i++)
                 {
-                    queue[temp.Length - intTemp-- ] = temp[i];
+                    queue[temp.Length - intTemp--] = temp[i];
                 }
                 this.head = 0;
-                this.tail = temp.Length - 1;
+                this.tail = temp.Length;
                 return;
             }
         }
@@ -92,7 +92,7 @@
         {
             foreach (T i in queue)
             {
-               Console.WriteLine(i);
+                Console.WriteLine(i);
             }
         }
     }

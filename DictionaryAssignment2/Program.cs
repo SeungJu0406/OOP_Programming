@@ -40,7 +40,7 @@
             else if (key is string)
                 return (int)key[0] % this.key.Length;
             else
-                return key % this.key.Length;
+                return (int)key % this.key.Length;
         }
     }
 }
