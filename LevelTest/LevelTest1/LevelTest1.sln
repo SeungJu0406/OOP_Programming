@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LevelTest1", "LevelTest1.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LevelTest2", "..\LevelTest2\LevelTest2.csproj", "{469F3736-6D4E-4F74-9FBB-D721248D01E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LevelTest3", "..\LevelTest3\LevelTest3.csproj", "{4B969EDA-56F9-4BED-9035-EC358FAAD608}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{469F3736-6D4E-4F74-9FBB-D721248D01E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{469F3736-6D4E-4F74-9FBB-D721248D01E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{469F3736-6D4E-4F74-9FBB-D721248D01E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B969EDA-56F9-4BED-9035-EC358FAAD608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B969EDA-56F9-4BED-9035-EC358FAAD608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B969EDA-56F9-4BED-9035-EC358FAAD608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B969EDA-56F9-4BED-9035-EC358FAAD608}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
