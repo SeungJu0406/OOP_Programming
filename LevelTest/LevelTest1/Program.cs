@@ -29,39 +29,9 @@
     }
     public static class Util
     {
-        public static void Swap(ref int left, ref int right)
+        public static void Swap<T>(ref T left, ref T right)
         {
-            int temp = left;
-            left = right;
-            right = temp;
-        }
-        public static void Swap(ref long left, ref long right)
-        {
-            long temp = left;
-            left = right;
-            right = temp;
-        }
-        public static void Swap(ref float left, ref float right)
-        {
-            float temp = left;
-            left = right;
-            right = temp;
-        }
-        public static void Swap(ref double left, ref double right)
-        {
-            double temp = left;
-            left = right;
-            right = temp;
-        }
-        public static void Swap(ref char left, ref char right)
-        {
-            char temp = left;
-            left = right;
-            right = temp;
-        }
-        public static void Swap(ref string left, ref string right)
-        {
-            string temp = left;
+            T temp = left;
             left = right;
             right = temp;
         }
