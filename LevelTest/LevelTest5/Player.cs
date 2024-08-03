@@ -42,7 +42,6 @@
             }
         }
 
-
         private void EquipItem(Item item)
         {
             if (item is Weapon)
@@ -54,6 +53,7 @@
                 WearEquipment(item, 1);
             }
         }
+
         private void UnEquipItem(Item item)
         {
             if (item is Weapon)
