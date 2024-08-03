@@ -7,7 +7,7 @@
         public int defense { get; set; }
         public int hp { get; set; }
         public Item[] equipList { get; private set; }
-        public List<Item> inventory;
+        public List<Item> inventory;       
         public Player()
         {
             gold = 3000;

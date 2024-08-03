@@ -7,6 +7,7 @@ namespace LevelTest5
         enum ShopPlace { Lobby = 1, BuyShop, SellShop, CheckItem, SIZE }
         List<Item> items;
         ShopPlace nowPlace;
+        public bool isInShop;
 
         public Shop()
         {
@@ -17,6 +18,7 @@ namespace LevelTest5
                 new Potion(),
             };
             nowPlace = ShopPlace.Lobby;
+            isInShop = true;
         }
         public void PrintShop(Player player)
         {
@@ -52,7 +54,7 @@ namespace LevelTest5
             Console.WriteLine("2. 아이템 판매");
             Console.WriteLine("3. 아이템 확인");
             Console.WriteLine();
-            Console.Write("메뉴를 선택하세요 : ");
+            Console.Write("메뉴를 선택하세요 (상점 나가기 0): ");
         }
 
         public void PrintBuyShop(Player player)
@@ -94,26 +96,6 @@ namespace LevelTest5
             FuncPlayerInventory(player);
             Console.Write("사용할 아이템을 선택하세요 (뒤로가기 0) : ");
         }
-
-        private void BuyItem(int index, Player player)
-        {
-            int balance = player.gold - items[index - 1].price;
-            if (balance >= 0)
-            {
-                player.gold = balance;
-                player.GetItem(items[index - 1]);
-            }
-        }
-        private void SellItem(int index, Player player)
-        {
-             player.gold += player.inventory[index-1].price;
-            player.ThrowItem(player.inventory[index-1]);
-        }
-        private void UseItem(int key, Player player)
-        {
-            player.UseItem(key);
-        }
-
         public void WaitChoice(Player player)
         {
             if (int.TryParse(Console.ReadLine(), out int key)) ;
@@ -137,7 +119,27 @@ namespace LevelTest5
                     break;
             }
         }
-        public void ChooseLobby(int key, Player player)
+        private void BuyItem(int index, Player player)
+        {
+            int balance = player.gold - items[index - 1].price;
+            if (balance >= 0)
+            {
+                player.gold = balance;
+                player.GetItem(items[index - 1]);
+            }
+        }
+        private void SellItem(int index, Player player)
+        {
+             player.gold += player.inventory[index-1].price;
+            player.ThrowItem(player.inventory[index-1]);
+        }
+        private void UseItem(int key, Player player)
+        {
+            player.UseItem(key);
+        }
+
+
+        private void ChooseLobby(int key, Player player)
         {
             switch (key)
             {
@@ -150,11 +152,14 @@ namespace LevelTest5
                 case 3:
                     EnterCheckItem(player);
                     break;
+                case 0:
+                    ExitShop(player);                   
+                    break;
                 default:
                     break;
             }
         }
-        public void ChooseBuyShop(int key, Player player)
+        private void ChooseBuyShop(int key, Player player)
         {
             if (key == 0)
                 EnterLobby(player);
@@ -163,7 +168,7 @@ namespace LevelTest5
                 BuyItem(key, player);
             }
         }
-        public void ChooseSellShop(int key, Player player)
+        private void ChooseSellShop(int key, Player player)
         {
 
             if (key == 0)
@@ -173,7 +178,7 @@ namespace LevelTest5
                 SellItem(key, player);
             }
         }
-        public void ChooseCheckItem(int key, Player player)
+        private void ChooseCheckItem(int key, Player player)
         {
             if (key == 0)
                 EnterLobby(player);
@@ -182,25 +187,29 @@ namespace LevelTest5
                UseItem(key, player);
             }
         }
-        public void EnterLobby(Player player)
+        private void EnterLobby(Player player)
         {
             nowPlace = ShopPlace.Lobby;
             PrintShop(player);
         }
-        public void EnterBuyShop(Player player)
+        private void EnterBuyShop(Player player)
         {
             nowPlace = ShopPlace.BuyShop;
             PrintShop(player);
         }
-        public void EnterSellShop(Player player)
+        private void EnterSellShop(Player player)
         {
             nowPlace = ShopPlace.SellShop;
             PrintShop(player);
         }
-        public void EnterCheckItem(Player player)
+        private void EnterCheckItem(Player player)
         {
             nowPlace = ShopPlace.CheckItem;
             PrintShop(player);
+        }
+        private void ExitShop(Player player)
+        {
+            isInShop = false;
         }
 
 
