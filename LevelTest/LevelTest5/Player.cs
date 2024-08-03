@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LevelTest5
+﻿namespace LevelTest5
 {
     public class Player
     {
-        public int gold {  get; set; }
-        public int power { get; private set; }
-        public int defense { get; private set; }
-        public int hp { get; private set; }
-        public Item[] equipList {  get; private set; }
-        public List<Item> inventory; 
+        public int gold { get; set; }
+        public int power { get; set; }
+        public int defense { get; set; }
+        public int hp { get; set; }
+        public Item[] equipList { get; private set; }
+        public List<Item> inventory;
         public Player()
         {
             gold = 3000;
-            power = 0; 
-            defense = 0; 
+            power = 0;
+            defense = 0;
             hp = 0;
             equipList = new Item[2];
             inventory = new List<Item>(5);
@@ -26,16 +20,64 @@ namespace LevelTest5
         public void GetItem(Item item)
         {
             inventory.Add(item);
-            if (item is Weapon) EquipWeapon(item);
-            if (item is Armor) EquipArmor(item);
         }
-        public void EquipWeapon(Item weapon)
+        public void ThrowItem(Item item)
         {
-            equipList[0] = weapon;
+
+            inventory.Remove(item);
+
         }
-        public void EquipArmor(Item armor)
+        public void UseItem(int key)
         {
-            equipList[1] = armor;
+            Item item = inventory[key - 1];
+            if (item is ActiveItem)
+            {
+                item.BeEffect(this);
+                inventory.RemoveAt(key - 1);
+            }
+            if (item is PassiveItem)
+            {
+                EquipItem(item);
+                inventory.RemoveAt(key - 1);
+            }
+        }
+
+
+        private void EquipItem(Item item)
+        {
+            if (item is Weapon)
+            {
+                WearEquipment(item, 0);
+            }
+            if(item is Armor)
+            {
+                WearEquipment(item, 1);
+            }
+        }
+        private void UnEquipItem(Item item)
+        {
+            if (item is Weapon)
+            {
+                equipList[0] = null;
+                item.NotEffect(this);
+            }
+            if(item is Armor)
+            {
+                equipList[1] = null;
+                item.NotEffect(this);
+            }
+        }
+
+        private void WearEquipment(Item item ,int index)
+        {
+            if (equipList[index] != null)
+            {
+                inventory.Add(equipList[index]);
+                equipList[index] = null;
+                item.NotEffect(this);
+            }
+            equipList[index] = item;
+            item.BeEffect(this);
         }
     }
 }

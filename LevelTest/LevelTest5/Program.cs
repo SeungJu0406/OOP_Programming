@@ -6,10 +6,11 @@
         {
             Shop shop = new Shop();
             Player player = new Player();
-            shop.Enter(player);
-            shop.BuyItem(3, player);
-            shop.Enter(player);
-            
+            while (true) 
+            {
+                shop.PrintShop(player);
+                shop.WaitChoice(player);
+            }          
         }
     }
 }
