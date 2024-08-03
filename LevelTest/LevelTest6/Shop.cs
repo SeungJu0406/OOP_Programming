@@ -2,12 +2,11 @@
 
 namespace LevelTest6
 {
-    public class Shop :Map
+    public class Shop : MapData
     {
         enum ShopPlace { Lobby = 1, BuyShop, SellShop, CheckItem, SIZE }
         List<Item> items;
-        ShopPlace nowPlace;
-        public bool isInShop;
+        ShopPlace nowPlace;        
 
         public Shop()
         {
@@ -17,12 +16,11 @@ namespace LevelTest6
                 new Armor(),
                 new Potion(),
             };
-            nowPlace = ShopPlace.Lobby;
-            isInShop = true;
+            nowPlace = ShopPlace.Lobby;          
             id = (int)MapName.Shop;
             name = "상점";
         }
-        public void PrintShop(Player player)
+        public override void PrintPlace(Player player)
         {
             switch (nowPlace)
             {
@@ -42,7 +40,7 @@ namespace LevelTest6
                     break;
             }
         }
-        public void WaitChoice(Player player)
+        public override void WaitChoice(Player player)
         {
             if (int.TryParse(Console.ReadLine(), out int key)) ;
             else
@@ -193,26 +191,26 @@ namespace LevelTest6
         private void EnterLobby(Player player)
         {
             nowPlace = ShopPlace.Lobby;
-            PrintShop(player);
+            PrintPlace(player);
         }
         private void EnterBuyShop(Player player)
         {
             nowPlace = ShopPlace.BuyShop;
-            PrintShop(player);
+            PrintPlace(player);
         }
         private void EnterSellShop(Player player)
         {
             nowPlace = ShopPlace.SellShop;
-            PrintShop(player);
+            PrintPlace(player);
         }
         private void EnterCheckItem(Player player)
         {
             nowPlace = ShopPlace.CheckItem;
-            PrintShop(player);
+            PrintPlace(player);
         }
         private void ExitShop(Player player)
         {
-            isInShop = false;
+            isPlace = false;
         }
 
 

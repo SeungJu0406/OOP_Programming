@@ -6,7 +6,26 @@ using System.Threading.Tasks;
 
 namespace LevelTest6
 {
-    public class Town : Map
+    public class MapData: IEnter
+    {
+        Map map;
+        protected enum MapName { Town, Castle, Guild, Shop, Cenetry, Forest, Grassland, Sea, SIZE }
+        public int id {  get; protected set; }
+        public string name { get; protected set; }
+        public bool isPlace;
+        public void Enter(Player player)
+        {
+            isPlace = true;
+            while (isPlace)
+            {
+                this.PrintPlace(player);
+                this.WaitChoice(player);
+            }
+        }
+        public virtual void PrintPlace(Player player) { isPlace = false; }
+        public virtual void WaitChoice(Player player) { isPlace = false; }
+    }
+    public class Town : MapData
     {
         public Town()
         {
@@ -14,7 +33,7 @@ namespace LevelTest6
             name = "마을";
         }
     }
-    public class Castle : Map
+    public class Castle : MapData
     {
         public Castle()
         {
@@ -22,7 +41,7 @@ namespace LevelTest6
             name = "성";
         }
     }
-    public class Guild : Map
+    public class Guild : MapData
     {
         public Guild()
         {
@@ -31,7 +50,7 @@ namespace LevelTest6
         }
     }
 
-    public class Cenetry : Map
+    public class Cenetry : MapData
     {
         public Cenetry()
         {
@@ -39,7 +58,7 @@ namespace LevelTest6
             name = "묘지";
         }
     }
-    public class Forest : Map
+    public class Forest : MapData
     {
         public Forest()
         {
@@ -47,7 +66,7 @@ namespace LevelTest6
             name = "숲";
         }
     }
-    public class Grassland : Map
+    public class Grassland : MapData
     {
         public Grassland()
         {
@@ -55,7 +74,7 @@ namespace LevelTest6
             name = "초원";
         }
     }
-    public class Sea : Map
+    public class Sea : MapData
     {
         public Sea()
         {
