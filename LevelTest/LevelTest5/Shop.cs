@@ -40,62 +40,6 @@ namespace LevelTest5
                     break;
             }
         }
-
-        public void PrintLobby()
-        {
-            Console.Clear();
-            Console.WriteLine("*********************************");
-            Console.WriteLine("*          아이템 상점          *");
-            Console.WriteLine("*********************************");
-            Console.WriteLine();
-            Console.WriteLine("========== 상점 메뉴 ===========");
-            Console.WriteLine();
-            Console.WriteLine("1. 아이템 구매");
-            Console.WriteLine("2. 아이템 판매");
-            Console.WriteLine("3. 아이템 확인");
-            Console.WriteLine();
-            Console.Write("메뉴를 선택하세요 (상점 나가기 0): ");
-        }
-
-        public void PrintBuyShop(Player player)
-        {
-            Console.Clear();
-            Console.WriteLine("================ 아이템 구매 ================");
-            Console.WriteLine($"보유한 골드: {player.gold}G");
-            Console.WriteLine();
-            for (int i = 0; i < items.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {items[i].name}");
-                Console.WriteLine($" 가격: {items[i].price}G");
-                Console.WriteLine($" 설명: {items[i].description}");
-                Console.WriteLine($" 효과: {items[i].effect}");
-                Console.WriteLine();
-            }
-            Console.Write("구매할 아이템을 선택하세요 (뒤로가기 0) : ");
-        }
-
-        public void PrintSellShop(Player player)
-        {
-            Console.Clear();
-            Console.WriteLine("================ 아이템 판매 ================");
-            Console.WriteLine($"보유한 골드: {player.gold}G");
-            Console.WriteLine();
-            FuncPlayerInventory(player);
-            Console.Write("판매할 아이템을 선택하세요 (뒤로가기 0) : ");
-        }
-
-        public void PrintCheckItem(Player player)
-        {
-            Console.Clear();
-            Console.WriteLine("================ 아이템 확인 ================");
-            Console.WriteLine($"플레이어 골드\t 보유량: {player.gold}G");
-            Console.WriteLine($"플레이어 공격력\t 상승량: {player.power}");
-            Console.WriteLine($"플레이어 방어력\t 상승량: {player.defense}");
-            Console.WriteLine($"플레이어 체력\t 상승량: {player.hp}");
-            Console.WriteLine();
-            FuncPlayerInventory(player);
-            Console.Write("사용할 아이템을 선택하세요 (뒤로가기 0) : ");
-        }
         public void WaitChoice(Player player)
         {
             if (int.TryParse(Console.ReadLine(), out int key)) ;
@@ -119,6 +63,63 @@ namespace LevelTest5
                     break;
             }
         }
+        private void PrintLobby()
+        {
+            Console.Clear();
+            Console.WriteLine("*********************************");
+            Console.WriteLine("*          아이템 상점          *");
+            Console.WriteLine("*********************************");
+            Console.WriteLine();
+            Console.WriteLine("========== 상점 메뉴 ===========");
+            Console.WriteLine();
+            Console.WriteLine("1. 아이템 구매");
+            Console.WriteLine("2. 아이템 판매");
+            Console.WriteLine("3. 아이템 확인");
+            Console.WriteLine();
+            Console.Write("메뉴를 선택하세요 (상점 나가기 0): ");
+        }
+
+
+        private void PrintBuyShop(Player player)
+        {
+            Console.Clear();
+            Console.WriteLine("================ 아이템 구매 ================");
+            Console.WriteLine($"보유한 골드: {player.gold}G");
+            Console.WriteLine();
+            for (int i = 0; i < items.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {items[i].name}");
+                Console.WriteLine($" 가격: {items[i].price}G");
+                Console.WriteLine($" 설명: {items[i].description}");
+                Console.WriteLine($" 효과: {items[i].effect}");
+                Console.WriteLine();
+            }
+            Console.Write("구매할 아이템을 선택하세요 (뒤로가기 0) : ");
+        }
+
+        private void PrintSellShop(Player player)
+        {
+            Console.Clear();
+            Console.WriteLine("================ 아이템 판매 ================");
+            Console.WriteLine($"보유한 골드: {player.gold}G");
+            Console.WriteLine();
+            FuncPlayerInventory(player);
+            Console.Write("판매할 아이템을 선택하세요 (뒤로가기 0) : ");
+        }
+
+        private void PrintCheckItem(Player player)
+        {
+            Console.Clear();
+            Console.WriteLine("================ 아이템 확인 ================");
+            Console.WriteLine($"플레이어 골드\t 보유량: {player.gold}G");
+            Console.WriteLine($"플레이어 공격력\t 상승량: {player.power}");
+            Console.WriteLine($"플레이어 방어력\t 상승량: {player.defense}");
+            Console.WriteLine($"플레이어 체력\t 상승량: {player.hp}");
+            Console.WriteLine();
+            FuncPlayerInventory(player);
+            Console.Write("사용할 아이템을 선택하세요 (뒤로가기 0) : ");
+        }
+
         private void BuyItem(int index, Player player)
         {
             int balance = player.gold - items[index - 1].price;
