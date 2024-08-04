@@ -126,11 +126,6 @@ namespace LevelTest6
              player.gold += player.inventory[index-1].price;
             player.ThrowItem(player.inventory[index-1]);
         }
-        //private void UseItem(int key, Player player)
-        //{
-        //    player.UseItem(key);
-        //}
-
 
         private void ChooseLobby(int key, Player player)
         {
@@ -155,7 +150,7 @@ namespace LevelTest6
         private void ChooseBuyShop(int key, Player player)
         {
             if (key == 0)
-                EnterLobby(player);
+                EnterLobby();
             if (0 < key && key <= items.Count)
             {
                 BuyItem(key, player);
@@ -165,7 +160,7 @@ namespace LevelTest6
         {
 
             if (key == 0)
-                EnterLobby(player);
+                EnterLobby();
             if (0 < key && key <= player.inventory.Count)
             {
                 SellItem(key, player);
@@ -174,32 +169,22 @@ namespace LevelTest6
         private void ChooseCheckItem(int key, Player player)
         {
             player.CheckItem(key, this);
-            //if (key == 0)
-            //    EnterLobby(player);
-            //if (0 < key && key <= player.inventory.Count)
-            //{
-            //   UseItem(key, player);
-            //}
         }
-        public override void EnterLobby(Player player)
+        public override void EnterLobby()
         {
             nowPlace = ShopPlace.Lobby;
-            PrintPlace(player);
         }
         private void EnterBuyShop(Player player)
         {
             nowPlace = ShopPlace.BuyShop;
-            PrintPlace(player);
         }
         private void EnterSellShop(Player player)
         {
             nowPlace = ShopPlace.SellShop;
-            PrintPlace(player);
         }
         private void EnterCheckItem(Player player)
         {
             nowPlace = ShopPlace.CheckItem;
-            PrintPlace(player);
         }
         private void ExitShop(Player player)
         {

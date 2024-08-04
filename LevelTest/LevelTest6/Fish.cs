@@ -8,6 +8,7 @@ namespace LevelTest6
 {
     public class Fish : ActiveItem
     {
+
     }
     public class Mackerel : Fish
     {
@@ -19,7 +20,15 @@ namespace LevelTest6
             hp = 50;
             effect = $"(소비) 체력 {hp} 증가";
         }
-     }
+        public override void BeEffect(Player player)
+        {
+            player.hp += hp;
+        }
+        public override void NotEffect(Player player)
+        {
+            player.hp -= hp;
+        }
+    }
     public class Squid : Fish
     {
         public Squid() 
@@ -29,6 +38,14 @@ namespace LevelTest6
             description = "무쌩긴 오징어";
             power = 2;
             effect = $"(소비) 공격력 {power} 증가";
+        }
+        public override void BeEffect(Player player)
+        {
+            player.power += power;
+        }
+        public override void NotEffect(Player player)
+        {
+            player.power -= power;
         }
     } 
     public class Bass : Fish
@@ -40,6 +57,14 @@ namespace LevelTest6
             description = "싱싱한 농어";
             defence = 5;
             effect = $"(소비) 방어력 {defence} 증가";
+        }
+        public override void BeEffect(Player player)
+        {
+            player.defense += defence;
+        }
+        public override void NotEffect(Player player)
+        {
+            player.defense -= defence;
         }
     }
 }
