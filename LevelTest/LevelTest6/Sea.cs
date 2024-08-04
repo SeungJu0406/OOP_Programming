@@ -83,7 +83,7 @@
             Console.WriteLine();
             if (countFish < caughtFish.Count)
             {
-                Console.WriteLine(" 생선을 잡았습니다!");
+                Console.WriteLine($" {caughtFish[countFish].name}을/를 잡았습니다!");
                 Console.WriteLine();
                 countFish++;
             }
