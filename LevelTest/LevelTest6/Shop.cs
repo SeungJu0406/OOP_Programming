@@ -2,7 +2,7 @@
 
 namespace LevelTest6
 {
-    public class Shop : MapData
+    public class Shop : Map
     {
         enum ShopPlace { Lobby = 1, BuyShop, SellShop, CheckItem, SIZE }
         List<Item> items;

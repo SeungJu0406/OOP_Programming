@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Map map = new Map();
+            Road map = new Road();
             Player player = new Player();
             while (true)
             {

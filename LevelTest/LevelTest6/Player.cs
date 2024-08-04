@@ -54,7 +54,7 @@
         /// </summary>
         /// <param name="key"></param>
         /// <param name="map"></param>
-        public void CheckItem(int key, MapData map)
+        public void CheckItem(int key, Map map)
         {
             if (key == 0)
                 map.EnterLobby();

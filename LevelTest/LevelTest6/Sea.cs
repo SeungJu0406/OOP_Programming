@@ -1,6 +1,6 @@
 ﻿namespace LevelTest6
 {
-    public class Sea : MapData
+    public class Sea : Map
     {
         enum SeaPlace { Lobby, CatchFish, CheckFish, CheckItem, SIZE }
         SeaPlace nowPlace;
