@@ -19,19 +19,16 @@
         }
         public void ConnectGraph()
         {
-            graph.Connect(0,1);
-            graph.Connect(0,3);
-            graph.Connect(0,4);
-            graph.Connect(1,3);
-            graph.Connect(1,5);
-            graph.Connect(1,6);
-            graph.Connect(2,1);
-            graph.Connect(2,4);
-            graph.Connect(4,6);
-            graph.Connect(5,6);
-            graph.Connect(6,2);
-            graph.Connect(7,5);
-            graph.Connect(7,6);
+            graph.ConeectBoth(0, 1);
+            graph.ConeectBoth(0, 2);
+            graph.ConeectBoth(0, 3);
+            graph.ConeectBoth(1, 3);
+            graph.ConeectBoth(1, 5); 
+            graph.ConeectBoth(2, 4);
+            graph.ConeectBoth(2, 5);
+            graph.ConeectBoth(3, 5);
+            graph.ConeectBoth(4, 6); 
+            graph.ConeectBoth(5, 6);
         }
         public void PrintGraph()
         {
@@ -57,6 +54,11 @@
         public void Connect(int from, int to)
         {
             vertex[from, to] = true;
+        }
+        public void ConeectBoth(int a, int b)
+        {
+            vertex[a, b] = true;
+            vertex[b, a] = true;
         }
         public void DisConnect(int from, int to) 
         {

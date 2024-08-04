@@ -19,25 +19,14 @@
         }
         public void ConnectGraph()
         {
-            this.graph.Connect(0, 2);
-
-            this.graph.Connect(1, 0);
-            this.graph.Connect(1, 3);
-            this.graph.Connect(1, 5);
-
-            this.graph.Connect(2, 6);
-
-            this.graph.Connect(4, 2);
-            this.graph.Connect(4, 7);
-
-            this.graph.Connect(5, 1);
-            this.graph.Connect(5, 6);
-            this.graph.Connect(5, 7); 
-
-            this.graph.Connect(6, 2);
-            this.graph.Connect(6, 5);
-            this.graph.Connect(6, 7);
-            this.graph.Connect(7, 4);
+            graph.ConnectBoth(0, 1); 
+            graph.ConnectBoth(0, 3);
+            graph.ConnectBoth(0, 4);
+            graph.ConnectBoth(2, 4);
+            graph.ConnectBoth(2, 5);
+            graph.ConnectBoth(4, 7);
+            graph.ConnectBoth(3, 7);
+            graph.ConnectBoth(5, 7);
         }
         public void PrintSample() 
         {
