@@ -103,7 +103,7 @@ namespace LevelTest6
             Console.WriteLine("================ 아이템 판매 ================");
             Console.WriteLine($"보유한 골드: {player.gold}G");
             Console.WriteLine();
-            FuncPlayerInventory(player);
+            player.FuncPlayerInventory();
             Console.Write("판매할 아이템을 선택하세요 (뒤로가기 0) : ");
         }
 
@@ -126,10 +126,10 @@ namespace LevelTest6
              player.gold += player.inventory[index-1].price;
             player.ThrowItem(player.inventory[index-1]);
         }
-        private void UseItem(int key, Player player)
-        {
-            player.UseItem(key);
-        }
+        //private void UseItem(int key, Player player)
+        //{
+        //    player.UseItem(key);
+        //}
 
 
         private void ChooseLobby(int key, Player player)
@@ -173,14 +173,15 @@ namespace LevelTest6
         }
         private void ChooseCheckItem(int key, Player player)
         {
-            if (key == 0)
-                EnterLobby(player);
-            if (0 < key && key <= player.inventory.Count)
-            {
-               UseItem(key, player);
-            }
+            player.CheckItem(key, this);
+            //if (key == 0)
+            //    EnterLobby(player);
+            //if (0 < key && key <= player.inventory.Count)
+            //{
+            //   UseItem(key, player);
+            //}
         }
-        private void EnterLobby(Player player)
+        public override void EnterLobby(Player player)
         {
             nowPlace = ShopPlace.Lobby;
             PrintPlace(player);

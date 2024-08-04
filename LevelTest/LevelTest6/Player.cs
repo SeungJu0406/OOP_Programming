@@ -55,6 +55,16 @@
             Console.Write("사용할 아이템을 선택하세요 (뒤로가기 0) : ");
         }
 
+        public void CheckItem(int key, MapData map)
+        {
+            if (key == 0)
+                map.EnterLobby(this);
+            if (0 < key && key <= inventory.Count)
+            {
+                UseItem(key);
+            }
+        }
+
         private void EquipItem(Item item)
         {
             if (item is Weapon)
@@ -92,7 +102,7 @@
             equipList[index] = item;
             item.BeEffect(this);
         }
-        private void FuncPlayerInventory()
+        public void FuncPlayerInventory()
         {
             for (int i = 0; i < inventory.Count; i++)
             {

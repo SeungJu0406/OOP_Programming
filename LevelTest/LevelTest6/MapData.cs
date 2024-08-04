@@ -24,6 +24,7 @@ namespace LevelTest6
         }
         public virtual void PrintPlace(Player player) { isPlace = false; }
         public virtual void WaitChoice(Player player) { isPlace = false; }
+        public virtual void EnterLobby(Player player) { }
     }
     public class Town : MapData
     {
