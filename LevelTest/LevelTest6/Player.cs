@@ -42,6 +42,19 @@
             }
         }
 
+        public void PrintCheckItem()
+        {
+            Console.Clear();
+            Console.WriteLine("================ 아이템 확인 ================");
+            Console.WriteLine($"플레이어 골드\t 보유량: {gold}G");
+            Console.WriteLine($"플레이어 공격력\t 상승량: {power}");
+            Console.WriteLine($"플레이어 방어력\t 상승량: {defense}");
+            Console.WriteLine($"플레이어 체력\t 상승량: {hp}");
+            Console.WriteLine();
+            FuncPlayerInventory();
+            Console.Write("사용할 아이템을 선택하세요 (뒤로가기 0) : ");
+        }
+
         private void EquipItem(Item item)
         {
             if (item is Weapon)
@@ -78,6 +91,17 @@
             }
             equipList[index] = item;
             item.BeEffect(this);
+        }
+        private void FuncPlayerInventory()
+        {
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {inventory[i].name}");
+                Console.WriteLine($" 가격: {inventory[i].price}G");
+                Console.WriteLine($" 설명: {inventory[i].description}");
+                Console.WriteLine($" 효과: {inventory[i].effect}");
+                Console.WriteLine();
+            }
         }
     }
 }

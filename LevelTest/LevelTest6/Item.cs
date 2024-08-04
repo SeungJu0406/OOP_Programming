@@ -34,7 +34,7 @@ namespace LevelTest6
             price = 400;
             description = "기본적인 검";
             power = 15;
-            effect = $"(소유) 공격력 상승{power}";           
+            effect = $"(착용) 공격력 상승{power}";           
         }
         public override void BeEffect(Player player) 
         {
@@ -54,7 +54,7 @@ namespace LevelTest6
             price = 500;
             description = "얇은 갑옷";
             defence = 15;
-            effect = $"(소유) 방어력 상승{defence}";
+            effect = $"(착용) 방어력 상승{defence}";
         }
         public override void BeEffect(Player player)
         {
@@ -74,7 +74,7 @@ namespace LevelTest6
             price = 800;
             description = "먹으면 기분이 안좋을 것 같다";
             hp = 300;
-            effect = $"(사용) 체력 영구상승 {hp}";
+            effect = $"(소비) 체력 영구상승 {hp}";
         }
         public override void BeEffect(Player player)
         {

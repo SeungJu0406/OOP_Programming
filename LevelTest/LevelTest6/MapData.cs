@@ -74,13 +74,6 @@ namespace LevelTest6
             name = "초원";
         }
     }
-    public class Sea : MapData
-    {
-        public Sea()
-        {
-            id = (int)MapName.Sea;
-            name = "바다";
-        }
-    }
+
 
 }

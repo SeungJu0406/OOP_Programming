@@ -109,15 +109,16 @@ namespace LevelTest6
 
         private void PrintCheckItem(Player player)
         {
-            Console.Clear();
-            Console.WriteLine("================ 아이템 확인 ================");
-            Console.WriteLine($"플레이어 골드\t 보유량: {player.gold}G");
-            Console.WriteLine($"플레이어 공격력\t 상승량: {player.power}");
-            Console.WriteLine($"플레이어 방어력\t 상승량: {player.defense}");
-            Console.WriteLine($"플레이어 체력\t 상승량: {player.hp}");
-            Console.WriteLine();
-            FuncPlayerInventory(player);
-            Console.Write("사용할 아이템을 선택하세요 (뒤로가기 0) : ");
+            player.PrintCheckItem();
+            //Console.Clear();
+            //Console.WriteLine("================ 아이템 확인 ================");
+            //Console.WriteLine($"플레이어 골드\t 보유량: {player.gold}G");
+            //Console.WriteLine($"플레이어 공격력\t 상승량: {player.power}");
+            //Console.WriteLine($"플레이어 방어력\t 상승량: {player.defense}");
+            //Console.WriteLine($"플레이어 체력\t 상승량: {player.hp}");
+            //Console.WriteLine();
+            //FuncPlayerInventory(player);
+            //Console.Write("사용할 아이템을 선택하세요 (뒤로가기 0) : ");
         }
 
         private void BuyItem(int index, Player player)
